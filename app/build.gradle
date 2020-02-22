@@ -120,4 +120,7 @@ dependencies {
 
     // Loader
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    // Adapter delegate for RecyclerView
+    implementation 'com.hannesdorfmann:adapterdelegates4:4.2.0'
 }
