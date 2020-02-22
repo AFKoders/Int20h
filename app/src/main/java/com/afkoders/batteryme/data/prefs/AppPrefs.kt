@@ -1,18 +1,32 @@
 package com.afkoders.batteryme.data.prefs
 
 import android.content.Context
+import com.afkoders.batteryme.presentation.common.models.User
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 
 class AppPrefs constructor(context: Context, private val gson: Gson) {
 
     companion object {
         private const val HISTORY_PREFS = "history_prefs"
-        private const val HISTORY_LIST = "history_list"
+        private const val USER_PREF = "USER_PREF"
     }
 
     private val prefs =
         context.getSharedPreferences(HISTORY_PREFS, Context.MODE_PRIVATE)
+
+
+    fun putUser(userAdd: User) {
+        user = userAdd
+    }
+
+    var user: User
+        set(value) = prefs.edit().putString(USER_PREF, gson.toJson(value)).apply()
+        get() = gson.fromJson(
+            prefs.getString(USER_PREF, ""),
+            object : TypeToken<User>() {}.type
+        ) ?: User("", "", "", "", "", null)
 
     /*fun addToHistory(track: History) {
         val newList = history

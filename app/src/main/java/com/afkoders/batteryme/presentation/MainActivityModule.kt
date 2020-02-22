@@ -18,6 +18,9 @@ import com.afkoders.batteryme.presentation.leaderboard.LeaderboardPresenter
 import com.afkoders.batteryme.presentation.main.MainFragment
 import com.afkoders.batteryme.presentation.main.MainFragmentAgreement
 import com.afkoders.batteryme.presentation.main.MainFragmentPresenter
+import com.afkoders.batteryme.presentation.login.LoginAgreement
+import com.afkoders.batteryme.presentation.login.LoginFragment
+import com.afkoders.batteryme.presentation.login.LoginPresenter
 import com.afkoders.batteryme.presentation.test.TestAgreement
 import com.afkoders.batteryme.presentation.test.TestFragment
 import com.afkoders.batteryme.presentation.test.TestPresenter
@@ -32,8 +35,15 @@ interface MainActivityModule {
     @ContributesAndroidInjector
     fun testFragment(): TestFragment?
 
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun loginFragment(): LoginFragment?
+
     @Binds
     fun testPresenter(testPresenter: TestPresenter): TestAgreement.Presenter
+
+    @Binds
+    fun loginPresenter(loginPresenter: LoginPresenter): LoginAgreement.Presenter
 
     @FragmentScope
     @ContributesAndroidInjector
