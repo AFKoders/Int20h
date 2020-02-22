@@ -10,7 +10,8 @@ import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
-class EventAdapterDelegate @Inject constructor() : AdapterDelegate<MutableList<@kotlin.jvm.JvmSuppressWildcards AdapterDelegateItem>>() {
+class EventAdapterDelegate @Inject constructor() :
+    AdapterDelegate<MutableList<@kotlin.jvm.JvmSuppressWildcards AdapterDelegateItem>>() {
     val eventClickedSubject = PublishSubject.create<Event>()
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
@@ -25,8 +26,10 @@ class EventAdapterDelegate @Inject constructor() : AdapterDelegate<MutableList<@
         return item is AdapterDelegateItem.Model<*>
     }
 
-    override fun onBindViewHolder(items: MutableList<AdapterDelegateItem>, position: Int,
-                                  holder: RecyclerView.ViewHolder, payloads: MutableList<Any>) {
+    override fun onBindViewHolder(
+        items: MutableList<AdapterDelegateItem>, position: Int,
+        holder: RecyclerView.ViewHolder, payloads: MutableList<Any>
+    ) {
         val event = (items[position] as AdapterDelegateItem.Model<*>).model as Event?
         if (holder is EventViewHolder && event != null) {
             holder.eventClickedObservable(event).subscribe(eventClickedSubject)

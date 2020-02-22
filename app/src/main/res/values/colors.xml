@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#00C48C</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
     <color name="white">#ffffff</color>
 
     <color name="textPrimary">#212121</color>
-    <color name="textSecondary">#BDBDBD</color>
+    <color name="textSecondary">#999999</color>
     <color name="textSecondaryDark">#757575</color>
-    <color name="textSecondaryLight">#E0E0E0</color>
+    <color name="textSecondaryLight">#E4E4E4</color>
 
     <color name="primaryTextColor">#333333</color>
     <color name="secondaryTextColor">#666666</color>
@@ -27,8 +27,6 @@
     <color name="ctaPrimaryRippleColor">#337F8088</color>
     <color name="ctaSecondaryRippleColor">#336A8FFF</color>
     <color name="colorBackgroundDialog">#fff</color>
-
-    <color name="navigation_color_selector">#00C48C</color>
 
     <color name="battery_body">#E7E9EF</color>
     <color name="battery_top_detail">#EFEFF3</color>

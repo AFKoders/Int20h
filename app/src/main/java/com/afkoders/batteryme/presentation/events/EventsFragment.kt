@@ -6,6 +6,9 @@ import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
 import com.afkoders.batteryme.presentation.events.list.EventsRecyclerAdapter
+import com.afkoders.batteryme.utils.extensions.show
+import com.afkoders.batteryme.utils.extensions.widget.makeGone
+import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import kotlinx.android.synthetic.main.fragment_events.*
 import javax.inject.Inject
 
@@ -13,7 +16,8 @@ class EventsFragment :
     BaseFragmentImpl<EventsAgreement.Presenter, EventsAgreement.View>(R.layout.fragment_events),
     EventsAgreement.View {
 
-    @Inject lateinit var adapter: EventsRecyclerAdapter
+    @Inject
+    lateinit var adapter: EventsRecyclerAdapter
 
     override fun setupInputs() {
         rvEvents.itemAnimator = DefaultItemAnimator()
@@ -28,6 +32,10 @@ class EventsFragment :
             }
         })
 
+        swipeRefreshLayoutEvents.setOnRefreshListener {
+            presenter.uploadData()
+        }
+
         adapter.eventClickedObservable
             .subscribe {
                 // TODO open details screen
@@ -35,12 +43,19 @@ class EventsFragment :
 
     }
 
-    override fun showLoading() {
+    override fun onResume() {
+        super.onResume()
+        presenter.uploadData()
+    }
 
+    override fun showLoading() {
+        swipeRefreshLayoutEvents.makeGone()
+        progress.show(parentFragmentManager)
     }
 
     override fun hideLoading() {
-
+        progress.dismiss()
+        swipeRefreshLayoutEvents.makeVisible()
     }
 
     override fun populateData(data: List<AdapterDelegateItem>) {
