@@ -1,8 +1,0 @@
-package com.afkoders.hackathon.utils.extensions.widget
-
-import android.widget.TextView
-
-
-fun TextView.erase() {
-    this.text = ""
-}

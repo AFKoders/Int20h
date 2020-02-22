@@ -1,0 +1,57 @@
+package com.afkoders.batteryme.utils.extensions
+
+import android.app.Activity
+import android.content.Intent
+import android.os.Build
+import android.os.Bundle
+import android.util.DisplayMetrics
+import android.view.ViewConfiguration
+import kotlin.math.min
+
+
+inline fun <reified T : Activity> Activity.openActivity(initializer: Intent.() -> Unit = {}) {
+    val intent = Intent(this, T::class.java).apply { initializer() }
+    startActivity(intent)
+}
+
+inline fun <reified T : Activity> Activity.openActivityForResult(
+    requestCode: Int,
+    options: Bundle? = null,
+    block: Intent.() -> Unit = {}
+) {
+    startActivityForResult(
+        Intent(this, T::class.java).apply { block.invoke(this) },
+        requestCode,
+        options
+    )
+}
+
+fun Activity.hasNavbar(): Boolean {
+    if (Build.FINGERPRINT.startsWith("generic"))
+        return true
+
+    val id = resources.getIdentifier("config_showNavigationBar", "bool", "android")
+    return id > 0 && resources.getBoolean(id)
+}
+
+fun Activity.getStatusBarHeight(): Int {
+    val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+    return if (resourceId > 0) resources.getDimensionPixelSize(resourceId) else 0
+}
+
+fun Activity.getNavigationBarHeight(): Int {
+    val hasMenuKey = ViewConfiguration.get(this).hasPermanentMenuKey()
+    val resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+    return if (resourceId > 0 && !hasMenuKey) resources.getDimensionPixelSize(resourceId) else 0
+}
+
+fun Activity.getMinWidthValue(): Int {
+    val display = windowManager.defaultDisplay
+    val metrics = DisplayMetrics()
+    display.getMetrics(metrics)
+
+    val heightPixels = metrics.heightPixels
+    val widthPixels = metrics.widthPixels
+
+    return min(heightPixels, widthPixels)
+}
