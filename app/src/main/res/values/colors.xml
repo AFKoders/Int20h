@@ -11,8 +11,9 @@
     <color name="textSecondaryDark">#757575</color>
     <color name="textSecondaryLight">#E0E0E0</color>
 
-    <color name="primaryTextColor">#CC000000</color>
-    <color name="secondaryTextColor">#99000000</color>
+    <color name="primaryTextColor">#333333</color>
+    <color name="secondaryTextColor">#666666</color>
+    
     <color name="placeholderTextColor">#C9C9D5</color>
 
     <color name="inputTextColor">#82829C</color>
@@ -28,5 +29,13 @@
     <color name="colorBackgroundDialog">#fff</color>
 
     <color name="navigation_color_selector">#00C48C</color>
+
+    <color name="battery_body">#E7E9EF</color>
+    <color name="battery_top_detail">#EFEFF3</color>
+    <color name="battery_progress">#FFFFFF</color>
+    <color name="battery_90">#00C48C</color>
+    <color name="battery_70">#FFCF5C</color>
+    <color name="battery_50">#F2994A</color>
+    <color name="battery_20">#FF647C</color>
 
 </resources>
