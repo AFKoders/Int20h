@@ -15,7 +15,6 @@ import com.afkoders.batteryme.utils.extensions.format
 import com.afkoders.batteryme.utils.extensions.throttleFirst
 import com.bumptech.glide.Glide
 import com.jakewharton.rxbinding2.view.RxView
-import kotlinx.android.synthetic.main.item_event.view.*
 import kotlinx.android.synthetic.main.item_leaderboard.view.*
 import java.util.*
 

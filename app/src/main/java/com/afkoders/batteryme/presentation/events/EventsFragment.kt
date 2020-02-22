@@ -32,6 +32,7 @@ class EventsFragment :
             .subscribe {
                 // TODO open details screen
             }.disposeByBagProvider()
+
     }
 
     override fun showLoading() {

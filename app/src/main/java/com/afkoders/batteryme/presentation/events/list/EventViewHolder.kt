@@ -12,6 +12,7 @@ import com.afkoders.batteryme.presentation.common.models.User
 import com.afkoders.batteryme.presentation.events.model.Event
 import com.afkoders.batteryme.utils.extensions.format
 import com.afkoders.batteryme.utils.extensions.throttleFirst
+import com.bumptech.glide.Glide
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.item_event.view.*
 import java.util.*
@@ -19,8 +20,10 @@ import java.util.*
 class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val tvEventName = itemView.tvTitle
     private val tvEventDescription = itemView.tvDescription
-    private val tvEventTime = itemView.tvDateTime
-    private val tvEventLocation = itemView.tvLocation
+    private val tvEventDate = itemView.tvDate
+    private val tvEventTime = itemView.tvTime
+    private val ivEventBottom = itemView.ivBottomImage
+    private val ivEventUpper = itemView.ivUpperImage
 
     fun bindName(name: String?) {
         tvEventName.text = name ?: ""
@@ -31,15 +34,19 @@ class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     fun bindTime(time: Date) {
-        tvEventTime.text = time.format()
-    }
-
-    fun bindLocation(location: String?) {
-        tvEventLocation.text = location ?: ""
+        val calendar = Calendar.getInstance()
+        calendar.time = time
+        tvEventTime.text = calendar.get(Calendar.HOUR_OF_DAY).toString()+" : "+calendar.get(Calendar.MINUTE).toString()
+        tvEventDate.text = calendar.get(Calendar.DAY_OF_MONTH).toString()
     }
 
     fun bindUsers(users: List<User>) {
-        // TODO add users somehow
+        if(users.isNotEmpty()) {
+            Glide.with(itemView.context).load(users.get(0).photo).into(ivEventUpper)
+        }
+        if(users.size > 1) {
+            Glide.with(itemView.context).load(users.get(1).photo).into(ivEventBottom)
+        }
     }
 
     fun eventClickedObservable(event: Event) =

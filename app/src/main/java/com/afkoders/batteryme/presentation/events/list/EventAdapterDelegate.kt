@@ -32,7 +32,6 @@ class EventAdapterDelegate @Inject constructor() : AdapterDelegate<MutableList<@
             holder.eventClickedObservable(event).subscribe(eventClickedSubject)
             holder.bindName(event.title)
             holder.bindDescription(event.description)
-            holder.bindLocation(event.location)
             holder.bindTime(event.dateTime)
             holder.bindUsers(event.users)
         }
