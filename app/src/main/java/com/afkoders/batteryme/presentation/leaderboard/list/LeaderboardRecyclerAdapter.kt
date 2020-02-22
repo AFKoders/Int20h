@@ -13,8 +13,6 @@ class LeaderboardRecyclerAdapter @Inject constructor(
 ) :
     RecyclerDelegationAdapter<AdapterDelegateItem>() {
 
-    val smthClickedObservable = leaderboardAdapterDelegate.smthClickedSubject
-
     init {
         delegatesManager
             .addDelegate(leaderboardAdapterDelegate)

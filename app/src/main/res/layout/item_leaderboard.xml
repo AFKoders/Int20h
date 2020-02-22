@@ -6,28 +6,50 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/viewPhoto"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:id="@+id/ivPhoto"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/viewName"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/viewPhoto"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/rubik_bold"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivPhoto"
+        app:layout_constraintEnd_toStartOf="@+id/batteryView"
+        app:layout_constraintStart_toEndOf="@+id/ivPhoto"
+        app:layout_constraintTop_toTopOf="@+id/ivPhoto" />
 
-    <TextView
-        android:id="@+id/viewScore"
-        android:layout_width="wrap_content"
+    <!--<FrameLayout
+        android:id="@+id/flBatteryView"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">-->
+
+    <com.afkoders.batteryme.presentation.custom.BatteryMini
+        android:id="@+id/batteryView"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivPhoto" />
+    <!--</FrameLayout>-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
