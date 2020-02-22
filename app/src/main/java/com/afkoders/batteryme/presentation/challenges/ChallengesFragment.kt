@@ -58,6 +58,7 @@ class ChallengesFragment :
     }
 
     override fun populateData(data: List<AdapterDelegateItem>) {
+        swipeRefreshLayoutChallenges.isRefreshing = false
         adapter.clearAndAddAll(data)
     }
 

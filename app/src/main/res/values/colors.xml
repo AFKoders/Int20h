@@ -6,7 +6,7 @@
 
     <color name="white">#ffffff</color>
 
-    <color name="textPrimary">#212121</color>
+    <color name="textPrimary">#333333</color>
     <color name="textSecondary">#999999</color>
     <color name="textSecondaryDark">#757575</color>
     <color name="textSecondaryLight">#E4E4E4</color>
@@ -18,14 +18,14 @@
 
     <color name="inputTextColor">#82829C</color>
 
-    <color name="ctaPrimaryTextColor">#2449F2</color>
-    <color name="ctaSecondaryTextColor">#6A8FFF</color>
+    <color name="ctaPrimaryTextColor">#FFF</color>
+    <color name="ctaSecondaryTextColor">#00C48C</color>
 
-    <color name="ctaPrimaryBackgroundColor">#FFFFFF</color>
-    <color name="ctaSecondaryBackgroundColor">#062BD4</color>
+    <color name="ctaPrimaryBackgroundColor">#00C48C</color>
+    <color name="ctaSecondaryBackgroundColor">#00C48C</color>
 
-    <color name="ctaPrimaryRippleColor">#337F8088</color>
-    <color name="ctaSecondaryRippleColor">#336A8FFF</color>
+    <color name="ctaPrimaryRippleColor">#33FFFFFF</color>
+    <color name="ctaSecondaryRippleColor">#3300C48C</color>
     <color name="colorBackgroundDialog">#fff</color>
 
     <color name="battery_body">#E7E9EF</color>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="475dp"
+    app:behavior_skipCollapsed="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRootBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-5dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_line" />
+
+            <FrameLayout
+                android:id="@+id/ivClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/oval_image_ripple_fix"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="6dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_close" />
+            </FrameLayout>
+
+
+            <ImageView
+                android:id="@+id/ivNotificationLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="61dp"
+                android:contentDescription="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.33"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivClose"
+                app:srcCompat="@drawable/ic_sheep" />
+
+            <TextView
+                android:id="@+id/tvNotificationTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/rubik_bold"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textAlignment="center"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivNotificationLogo"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/tvNotificationMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/rubik_regular"
+                android:gravity="center"
+                android:maxLines="5"
+                android:textAlignment="center"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvNotificationTitle"
+                app:layout_constraintStart_toStartOf="@+id/tvNotificationTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvNotificationTitle"
+                tools:text="Message" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ctaNegative"
+                style="@style/Button.Secondary"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Dismiss"
+                android:textAllCaps="false"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ctaPositive"
+                app:layout_constraintEnd_toStartOf="@+id/ctaPositive"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ctaPositive" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ctaPositive"
+                style="@style/Button.Primary"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Deal with it"
+                android:textAllCaps="false"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ctaNegative"
+                app:layout_constraintTop_toBottomOf="@+id/tvNotificationMessage"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

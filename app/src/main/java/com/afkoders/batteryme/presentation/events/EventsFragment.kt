@@ -59,6 +59,7 @@ class EventsFragment :
     }
 
     override fun populateData(data: List<AdapterDelegateItem>) {
+        swipeRefreshLayoutEvents.isRefreshing = false
         adapter.clearAndAddAll(data)
     }
 

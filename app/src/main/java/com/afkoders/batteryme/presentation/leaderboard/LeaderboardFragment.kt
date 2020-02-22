@@ -5,7 +5,9 @@ import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
 import com.afkoders.batteryme.presentation.leaderboard.list.LeaderboardRecyclerAdapter
-import com.afkoders.batteryme.presentation.leaderboard.model.LeaderboardModel
+import com.afkoders.batteryme.utils.extensions.show
+import com.afkoders.batteryme.utils.extensions.widget.makeGone
+import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import kotlinx.android.synthetic.main.fragment_leaderboard.*
 import javax.inject.Inject
 
@@ -17,41 +19,32 @@ class LeaderboardFragment :
     lateinit var adapter: LeaderboardRecyclerAdapter
 
     override fun setupInputs() {
-
         rvLeaderboard.itemAnimator = DefaultItemAnimator()
         rvLeaderboard.adapter = adapter
 
-
-
-        adapter.smthClickedObservable
-            .subscribe {
-                // TODO open something
-            }.disposeByBagProvider()
-
-        adapter.addAll(getTestData())
-
-    }
-
-    private fun getTestData(): List<AdapterDelegateItem> {
-       return  listOf(
-            LeaderboardModel("https://", "name", 88),
-            LeaderboardModel("https://", "name", 88),
-            LeaderboardModel("https://", "name", 88),
-            LeaderboardModel("https://", "name", 88),
-            LeaderboardModel("https://", "name", 88),
-            LeaderboardModel("https://", "name", 88),
-            LeaderboardModel("https://", "name", 88)
-            ).map{
-            AdapterDelegateItem.Model(it)
+        swipeRefreshLayoutLeaderboard.setOnRefreshListener {
+            presenter.uploadData()
         }
     }
 
-    override fun showLoading() {
+    override fun onResume() {
+        super.onResume()
+        presenter.uploadData()
+    }
 
+    override fun populateData(data: List<AdapterDelegateItem>) {
+        swipeRefreshLayoutLeaderboard.isRefreshing = false
+        adapter.clearAndAddAll(data)
+    }
+
+    override fun showLoading() {
+        swipeRefreshLayoutLeaderboard.makeGone()
+        progress.show(parentFragmentManager)
     }
 
     override fun hideLoading() {
-
+        progress.dismiss()
+        swipeRefreshLayoutLeaderboard.makeVisible()
     }
 
     override fun returnThisHerePlease(): LeaderboardAgreement.View = this

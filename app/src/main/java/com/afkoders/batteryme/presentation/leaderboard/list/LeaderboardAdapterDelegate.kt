@@ -11,7 +11,6 @@ import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
 class LeaderboardAdapterDelegate @Inject constructor() : AdapterDelegate<MutableList<@kotlin.jvm.JvmSuppressWildcards AdapterDelegateItem>>() {
-    val smthClickedSubject = PublishSubject.create<LeaderboardModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val context = parent.context
@@ -28,7 +27,6 @@ class LeaderboardAdapterDelegate @Inject constructor() : AdapterDelegate<Mutable
                                   holder: RecyclerView.ViewHolder, payloads: MutableList<Any>) {
         val model = (items[position] as AdapterDelegateItem.Model<*>).model as LeaderboardModel?
         if (holder is LeaderboardViewHolder && model != null) {
-            holder.smthClickedObservable(model).subscribe(smthClickedSubject)
             holder.bindName(model.name)
             holder.bindPhoto(model.photoUrl)
             holder.bindScore(model.score)
