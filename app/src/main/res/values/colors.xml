@@ -6,6 +6,11 @@
 
     <color name="white">#ffffff</color>
 
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#BDBDBD</color>
+    <color name="textSecondaryDark">#757575</color>
+    <color name="textSecondaryLight">#E0E0E0</color>
+
     <color name="primaryTextColor">#CC000000</color>
     <color name="secondaryTextColor">#99000000</color>
     <color name="placeholderTextColor">#C9C9D5</color>
