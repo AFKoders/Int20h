@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/hackaton_nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/splashFragment">
+
+    <fragment android:id="@+id/splashFragment"
+    android:name="com.afkoders.batteryme.presentation.splash.SplashFragment"
+    android:label="SplashFragment" >
+    <action
+        android:id="@+id/action_to_login_fragment"
+        app:destination="@id/loginFragment"
+        app:enterAnim="@anim/enter_from_right"
+        app:exitAnim="@anim/exit_to_left"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/enter_from_left"
+        app:popExitAnim="@anim/exit_to_right" />
+</fragment>
 
     <fragment
         android:id="@+id/loginFragment"

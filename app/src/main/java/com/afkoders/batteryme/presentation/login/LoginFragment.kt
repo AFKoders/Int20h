@@ -34,7 +34,6 @@ class LoginFragment :
             signIn()
         }
 
-
         tvSignin.bindClick { signIn() }
     }
 
