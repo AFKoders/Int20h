@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="primary_text_size">24sp</dimen>
+    <dimen name="secondary_text_size">18sp</dimen>
+    <dimen name="cta_text_size">18sp</dimen>
+
+    <dimen name="input_corner_radius">16dp</dimen>
+    <dimen name="cta_corner_radius">16dp</dimen>
+    <dimen name="avatar_corner_radius">23dp</dimen>
+    <dimen name="icon_size">56dp</dimen>
+
+    <!--  Dialog  -->
+    <dimen name="default_width_of_dialog">410dp</dimen>
+    <dimen name="dialog_button_margin">16dp</dimen>
+    <dimen name="dialog_button_corner_radius">12dp</dimen>
+</resources>

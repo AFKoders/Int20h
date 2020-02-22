@@ -1,0 +1,60 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <item name="android:windowBackground">@null</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="TextView.Primary.Text" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/primary_text_size</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+<!--        <item name="android:fontFamily">@font/</item>-->
+    </style>
+
+    <style name="TextView.Secondary.Text" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/secondary_text_size</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+<!--        <item name="android:fontFamily">@font/</item>-->
+    </style>
+
+    <style name="TextView.Secondary.Message" parent="@style/TextView.Secondary.Text">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="Button.Primary" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/cta_text_size</item>
+<!--        <item name="android:fontFamily">@font/</item>-->
+        <item name="android:textColor">@color/ctaPrimaryTextColor</item>
+        <item name="android:backgroundTint">@color/ctaPrimaryBackgroundColor</item>
+        <item name="cornerRadius">@dimen/cta_corner_radius</item>
+        <item name="rippleColor">@color/ctaPrimaryRippleColor</item>
+    </style>
+
+    <style name="Button.Secondary" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/cta_text_size</item>
+<!--        <item name="android:fontFamily">@font/</item>-->
+        <item name="android:textColor">@color/ctaSecondaryTextColor</item>
+        <item name="android:backgroundTint">@color/ctaSecondaryBackgroundColor</item>
+        <item name="cornerRadius">@dimen/cta_corner_radius</item>
+        <item name="rippleColor">@color/ctaSecondaryRippleColor</item>
+    </style>
+
+</resources>
