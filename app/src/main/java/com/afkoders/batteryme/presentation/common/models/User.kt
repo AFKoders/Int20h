@@ -1,6 +1,7 @@
 package com.afkoders.batteryme.presentation.common.models
 
 import android.net.Uri
+import java.io.Serializable
 
 data class User(
     val name: String,
@@ -8,5 +9,5 @@ data class User(
     val familyName: String,
     val email: String,
     val id: String,
-    val photo: Uri
-)
+    val photo: Uri?
+): Serializable
