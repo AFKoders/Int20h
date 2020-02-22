@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "648071190403",
+    "firebase_url": "https://batteryme-3b62c.firebaseio.com",
+    "project_id": "batteryme-3b62c",
+    "storage_bucket": "batteryme-3b62c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648071190403:android:e9b6e7e4c157bf8cfcc8b6",
+        "android_client_info": {
+          "package_name": "com.afkoders.hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648071190403-i1bi3i60vdj6djicbk89ru8mrbr04dng.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.afkoders.hackathon",
+            "certificate_hash": "d89cc9ba3aaf5b02284bd0d9cf363ebd7d64d97c"
+          }
+        },
+        {
+          "client_id": "648071190403-7pnnkj9luqm026kb1623hjn3qsk2jhno.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOZ2oJNQ-EiDFyg2HI89QPYCDzZTMeEUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648071190403-7pnnkj9luqm026kb1623hjn3qsk2jhno.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
