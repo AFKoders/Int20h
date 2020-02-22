@@ -27,6 +27,7 @@ class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val tvEventTime = itemView.tvTime
     private val ivEventBottom = itemView.ivBottomImage
     private val ivEventUpper = itemView.ivUpperImage
+    private val tvCount = itemView.tvCount
 
     fun bindName(name: String?) {
         tvEventName.text = name ?: ""
@@ -49,6 +50,12 @@ class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
         if(users.size > 1) {
             Glide.with(itemView.context).load(users.get(1).photo).into(ivEventBottom)
+        }
+        if(users.size > 3){
+            ivEventBottom.visibility = View.GONE
+            tvCount.visibility = View.VISIBLE
+            tvCount.text = users.size.toString()
+
         }
     }
 
