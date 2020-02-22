@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="white">#ffffff</color>
+
     <color name="primaryTextColor">#CC000000</color>
     <color name="secondaryTextColor">#99000000</color>
     <color name="placeholderTextColor">#C9C9D5</color>
@@ -19,5 +21,7 @@
     <color name="ctaPrimaryRippleColor">#337F8088</color>
     <color name="ctaSecondaryRippleColor">#336A8FFF</color>
     <color name="colorBackgroundDialog">#fff</color>
+
+    <color name="navigation_color_selector">#00C48C</color>
 
 </resources>

@@ -31,7 +31,7 @@ abstract class ApplicationModule {
         @Provides
         @ApplicationScope
         @JvmStatic
-        fun provideHistoryPrefs(@ApplicationContext context: Context, gson: Gson): AppPrefs {
+        fun provideAppPrefs(@ApplicationContext context: Context, gson: Gson): AppPrefs {
             return AppPrefs(context, gson)
         }
     }

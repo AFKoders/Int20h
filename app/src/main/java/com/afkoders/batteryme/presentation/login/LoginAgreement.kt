@@ -9,6 +9,6 @@ interface LoginAgreement {
     }
 
     interface Presenter: BasePresenter<View> {
-
+        fun saveUserToPrefs(): Boolean
     }
 }
