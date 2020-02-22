@@ -2,7 +2,7 @@ package com.afkoders.batteryme.presentation.login
 
 import android.app.Activity.RESULT_CANCELED
 import android.content.Intent
-import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.common.models.User
@@ -27,20 +27,18 @@ class LoginFragment :
         updateUserPrefs(account)
 
         if (account != null) {
-            setupSignout()
-        } else {
-            setupSignin()
+            navigateToMainScreen()
         }
 
         sign_in_button.bindClick {
             signIn()
         }
 
-        sign_out_button.bindClick {
-            mGoogleSignInClient.signOut()
-            setupSignin()
-            updateUserPrefs(null)
-        }
+        tvSignin.bindClick { signIn() }
+    }
+
+    private fun navigateToMainScreen() {
+        findNavController().navigate(R.id.action_to_main_fragment)
     }
 
     private fun signIn() {
@@ -50,17 +48,7 @@ class LoginFragment :
 
     private fun handleSignInResult(result: GoogleSignInAccount?) {
         updateUserPrefs(result)
-        setupSignout()
-    }
-
-    private fun setupSignout() {
-        sign_in_button.visibility = View.GONE
-        sign_out_button.visibility = View.VISIBLE
-    }
-
-    private fun setupSignin() {
-        sign_in_button.visibility = View.VISIBLE
-        sign_out_button.visibility = View.GONE
+        navigateToMainScreen()
     }
 
 

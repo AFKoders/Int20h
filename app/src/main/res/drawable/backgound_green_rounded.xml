@@ -14,10 +14,10 @@
 
     <item
         android:id="@android:id/progress"
-        android:bottom="4dp"
-        android:left="4dp"
-        android:right="4dp"
-        android:top="4dp">
+        android:bottom="3dp"
+        android:left="3dp"
+        android:right="3dp"
+        android:top="3dp">
         <shape>
             <corners android:radius="4dp" />
             <solid android:color="#00C48C" />

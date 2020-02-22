@@ -33,6 +33,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vBattery" />
 
+    <TextView
+        android:id="@+id/tvBatteryTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/rubik_bold"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="Stay hydrated"
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
+
+    <TextView
+        android:id="@+id/tvBatteryMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/rubik_regular"
+        android:gravity="center"
+        android:maxLines="5"
+        android:text="Water is very important to one’s health and as such, you must consume a lot of water to stay hydrated."
+        android:textAlignment="center"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvBatteryTitle"
+        app:layout_constraintStart_toStartOf="@+id/tvBatteryTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvBatteryTitle" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
