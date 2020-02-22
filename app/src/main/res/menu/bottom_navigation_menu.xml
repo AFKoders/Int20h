@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menuItemBattery"
+        android:enabled="true"
+        android:title="Battery"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuItemChallenges"
+        android:enabled="true"
+        android:title="Challenges"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuItemEvents"
+        android:enabled="true"
+        android:title="Events"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuItemLeaderboard"
+        android:enabled="true"
+        android:title="Leaderboard"
+        app:showAsAction="always" />
+</menu>

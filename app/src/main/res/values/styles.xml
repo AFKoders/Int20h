@@ -57,4 +57,20 @@
         <item name="rippleColor">@color/ctaSecondaryRippleColor</item>
     </style>
 
+    <style name="BottomNavigationView">
+        <item name="itemTextAppearanceActive">@style/BottomNavigationTextAppearance.BottomNavigationView.Active</item>
+        <item name="itemTextAppearanceInactive">@style/BottomNavigationTextAppearance.BottomNavigationView.Inactive</item>
+    </style>
+
+    <style name="BottomNavigationTextAppearance"/>
+    <style name="BottomNavigationTextAppearance.BottomNavigationView"/>
+
+    <style name="BottomNavigationTextAppearance.BottomNavigationView.Inactive">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="BottomNavigationTextAppearance.BottomNavigationView.Active">
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>
