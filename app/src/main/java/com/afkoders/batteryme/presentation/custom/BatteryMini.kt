@@ -1,11 +1,7 @@
 package com.afkoders.batteryme.presentation.custom
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.Rect
-import android.graphics.RectF
-import android.graphics.drawable.PaintDrawable
+import android.graphics.*
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
@@ -22,9 +18,13 @@ class BatteryMini @JvmOverloads constructor(
     private val displayMetrics by lazy { context.resources.displayMetrics }
 
     // SmallPiece
-    private val smallPiecePaint =
-        PaintDrawable(ContextCompat.getColor(context, R.color.battery_top_detail))
-    private val smallPieceRect = Rect()
+    private val smallPiecePaint = Paint().apply {
+        color = ContextCompat.getColor(context, R.color.battery_body)
+        style = Paint.Style.FILL_AND_STROKE
+        flags = Paint.ANTI_ALIAS_FLAG
+    }
+
+    private val smallPieceRect = RectF()
     private var smallPiecePaintHeightPercent = 40
     private var smallPiecePaintWidthPercent = 3
 
@@ -42,23 +42,24 @@ class BatteryMini @JvmOverloads constructor(
     }
     private val progressRect = RectF()
     private var progress: Int = 0
+    var textSize: Int = 16
 
-    private val progressTextPaint = Paint().apply {
+    private var progressTextPaint: Paint = Paint().apply {
         color = ContextCompat.getColor(context, R.color.battery_progress)
         flags = Paint.ANTI_ALIAS_FLAG
         textAlign = Paint.Align.CENTER
         textSize = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_SP,
-            16.toFloat(),
+            this@BatteryMini.textSize.toFloat(),
             displayMetrics
         )
         typeface = ResourcesCompat.getFont(context, R.font.rubik_bold)
     }
 
-    private val radius = 4.dpToPx(context).toFloat()
+    var radius = 4.dpToPx(context).toFloat()
     private var cacheMeasuredWidth: Int = 0
 
-    private val innerCoeficient = 4.dpToPx(context).toFloat()
+    var innerCoeficient = 4.dpToPx(context).toFloat()
 
     init {
         init(attrs)
@@ -68,6 +69,21 @@ class BatteryMini @JvmOverloads constructor(
         val ta = context.obtainStyledAttributes(attrs, R.styleable.BatteryView)
         try {
             progress = ta.getInt(R.styleable.BatteryView_percentage, 0)
+            radius = ta.getInt(R.styleable.BatteryView_radius, 4).dpToPx(context).toFloat()
+            innerCoeficient = ta.getInt(R.styleable.BatteryView_inner_coeficient, 4).dpToPx(context).toFloat()
+            textSize = ta.getInt(R.styleable.BatteryView_text_size, 16)
+
+            progressTextPaint = Paint().apply {
+                color = ContextCompat.getColor(context, R.color.battery_progress)
+                flags = Paint.ANTI_ALIAS_FLAG
+                textAlign = Paint.Align.CENTER
+                textSize = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_SP,
+                    this@BatteryMini.textSize.toFloat(),
+                    displayMetrics
+                )
+                typeface = ResourcesCompat.getFont(context, R.font.rubik_bold)
+            }
         } finally {
             ta.recycle()
         }
@@ -81,9 +97,7 @@ class BatteryMini @JvmOverloads constructor(
     }
 
     private fun drawTop(canvas: Canvas) {
-        smallPiecePaint.bounds = smallPieceRect
-        smallPiecePaint.setCornerRadii(floatArrayOf(radius, radius, radius, radius, 0f, 0f, 0f, 0f))
-        smallPiecePaint.draw(canvas)
+        canvas.drawRoundRect(smallPieceRect, 4.dpToPx(context).toFloat(), 4.dpToPx(context).toFloat(),smallPiecePaint)
     }
 
     private fun drawBody(canvas: Canvas) {
@@ -112,7 +126,7 @@ class BatteryMini @JvmOverloads constructor(
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         val measureHeight = getDefaultSize(suggestedMinimumHeight, heightMeasureSpec)
-        val measureWidth = (measureHeight * 1.9f).toInt()
+        val measureWidth = getDefaultSize(suggestedMinimumWidth, widthMeasureSpec)
         cacheMeasuredWidth = if (measuredWidth != 0) measuredWidth else cacheMeasuredWidth
         setMeasuredDimension(measureWidth, measureHeight)
 
@@ -120,7 +134,7 @@ class BatteryMini @JvmOverloads constructor(
         val smallPieceRight = smallPiecePaintWidthPercent * measuredWidth / 100
         val smallPieceTop = measureHeight * ((100 - smallPiecePaintHeightPercent) / 2) / 100
         val smallPieceBottom = measureHeight - smallPieceTop
-        smallPieceRect.set(0, smallPieceTop, smallPieceRight, smallPieceBottom)
+        smallPieceRect.set(0.0f, smallPieceTop.toFloat(), smallPieceRight.toFloat() + 16.dpToPx(context).toFloat(), smallPieceBottom.toFloat())
 
         // Outer
         val outerLeft = smallPieceRight.toFloat()
