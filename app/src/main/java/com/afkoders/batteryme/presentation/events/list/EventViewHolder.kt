@@ -15,6 +15,9 @@ import com.afkoders.batteryme.utils.extensions.throttleFirst
 import com.bumptech.glide.Glide
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.item_event.view.*
+import java.text.SimpleDateFormat
+import java.time.Month
+import java.time.format.TextStyle
 import java.util.*
 
 class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -24,6 +27,7 @@ class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val tvEventTime = itemView.tvTime
     private val ivEventBottom = itemView.ivBottomImage
     private val ivEventUpper = itemView.ivUpperImage
+    private val tvCount = itemView.tvCount
 
     fun bindName(name: String?) {
         tvEventName.text = name ?: ""
@@ -37,7 +41,7 @@ class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val calendar = Calendar.getInstance()
         calendar.time = time
         tvEventTime.text = calendar.get(Calendar.HOUR_OF_DAY).toString()+" : "+calendar.get(Calendar.MINUTE).toString()
-        tvEventDate.text = calendar.get(Calendar.DAY_OF_MONTH).toString()
+        tvEventDate.text = calendar.get(Calendar.DAY_OF_MONTH).toString()+"\n"+ SimpleDateFormat("MMM").format(calendar.time)
     }
 
     fun bindUsers(users: List<User>) {
@@ -46,6 +50,12 @@ class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
         if(users.size > 1) {
             Glide.with(itemView.context).load(users.get(1).photo).into(ivEventBottom)
+        }
+        if(users.size > 3){
+            ivEventBottom.visibility = View.GONE
+            tvCount.visibility = View.VISIBLE
+            tvCount.text = users.size.toString()
+
         }
     }
 

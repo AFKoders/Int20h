@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
-import com.afkoders.batteryme.presentation.leaderboard.list.LeaderboardViewHolder
 import com.afkoders.batteryme.presentation.leaderboard.model.LeaderboardModel
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import io.reactivex.subjects.PublishSubject

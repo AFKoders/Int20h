@@ -39,20 +39,23 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
-    <style name="Button.Primary" parent="@style/Widget.MaterialComponents.Button">
+    <style name="Button.Primary" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textSize">@dimen/cta_text_size</item>
-<!--        <item name="android:fontFamily">@font/</item>-->
+        <item name="android:fontFamily">@font/rubik_medium</item>
+        <item name="android:letterSpacing">0.01</item>
         <item name="android:textColor">@color/ctaPrimaryTextColor</item>
         <item name="android:backgroundTint">@color/ctaPrimaryBackgroundColor</item>
         <item name="cornerRadius">@dimen/cta_corner_radius</item>
         <item name="rippleColor">@color/ctaPrimaryRippleColor</item>
     </style>
 
-    <style name="Button.Secondary" parent="@style/Widget.MaterialComponents.Button">
+    <style name="Button.Secondary" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:textSize">@dimen/cta_text_size</item>
-<!--        <item name="android:fontFamily">@font/</item>-->
+        <item name="android:fontFamily">@font/rubik_medium</item>
+        <item name="android:letterSpacing">0.01</item>
         <item name="android:textColor">@color/ctaSecondaryTextColor</item>
-        <item name="android:backgroundTint">@color/ctaSecondaryBackgroundColor</item>
+        <item name="strokeColor">@color/ctaSecondaryBackgroundColor</item>
+        <item name="strokeWidth">1.5dp</item>
         <item name="cornerRadius">@dimen/cta_corner_radius</item>
         <item name="rippleColor">@color/ctaSecondaryRippleColor</item>
     </style>
