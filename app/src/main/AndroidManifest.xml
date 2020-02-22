@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.afkoders.batteryme">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.afkoders.batteryme.HackathonApplication"
         android:allowBackup="true"
