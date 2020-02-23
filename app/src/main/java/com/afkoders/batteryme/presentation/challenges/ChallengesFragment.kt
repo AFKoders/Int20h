@@ -42,7 +42,7 @@ class ChallengesFragment :
             }.disposeByBagProvider()
 
         fabNewChallenge.bindClick {
-            // TODO
+            (parentFragment as MainFragment).navigateToChallengeCreation()
         }
     }
 

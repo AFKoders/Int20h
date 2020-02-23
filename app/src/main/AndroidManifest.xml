@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.afkoders.batteryme.presentation.MainActivity"
-            android:screenOrientation="sensorPortrait">
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

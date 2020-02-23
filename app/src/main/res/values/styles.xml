@@ -76,4 +76,14 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="EditText" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeColor">@color/textSecondaryLight</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+    </style>
+
 </resources>

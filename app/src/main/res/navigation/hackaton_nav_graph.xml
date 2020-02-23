@@ -53,6 +53,14 @@
             app:popEnterAnim="@anim/enter_from_left"
             app:popExitAnim="@anim/exit_to_right" />
         <action
+            android:id="@+id/action_mainFragment_to_createChallengeFragment"
+            app:destination="@id/createChallengeFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"/>
+        <action
             android:id="@+id/action_batteryFragment_to_settingsFragment"
             app:destination="@id/logoutFragment"
             app:enterAnim="@anim/enter_from_right"
@@ -90,4 +98,8 @@
         android:id="@+id/quizeFragment"
         android:name="com.afkoders.batteryme.presentation.quize.PreQuizFragment"
         android:label="QuizeFragment" />
+    <fragment
+        android:id="@+id/createChallengeFragment"
+        android:name="com.afkoders.batteryme.presentation.create_challenge.CreateChallengeFragment"
+        android:label="CreateChallengeFragment" />
 </navigation>
