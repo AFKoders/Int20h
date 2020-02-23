@@ -1,11 +1,16 @@
 package com.afkoders.batteryme.presentation.main
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
+import com.afkoders.batteryme.presentation.challenges.model.Challenge
+import com.afkoders.batteryme.presentation.create_event.EventDetailsFragment
+import com.afkoders.batteryme.presentation.events.model.Event
 import com.afkoders.batteryme.utils.extensions.collapse
 import com.afkoders.batteryme.utils.extensions.dpToPx
 import com.afkoders.batteryme.utils.extensions.hide
@@ -146,5 +151,17 @@ class MainFragment :
         tvNotificationMessage.text = message
         ivLine.alpha = 0.8f
         ivClose.alpha = 0f
+    }
+
+    fun navigateToEventDetailsFragment(event: Event) {
+        findNavController().navigate(R.id.action_mainFragment_to_eventDetailsFragment, Bundle().apply {
+            putSerializable(EventDetailsFragment.EVENT_PARAMETER, event)
+        })
+    }
+
+    fun navigateToCreateChallenge(challenge: Challenge) {
+        /*findNavController().navigate(R.id.action_mainFragment_to_createEventFragment, Bundle().apply {
+            putSerializable(EventDetailsFragment.EVENT_PARAMETER, event)
+        })*/
     }
 }

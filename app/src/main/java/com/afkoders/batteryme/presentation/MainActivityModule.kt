@@ -9,6 +9,9 @@ import com.afkoders.batteryme.presentation.battery.BatteryPresenter
 import com.afkoders.batteryme.presentation.challenges.ChallengesAgreement
 import com.afkoders.batteryme.presentation.challenges.ChallengesFragment
 import com.afkoders.batteryme.presentation.challenges.ChallengesPresenter
+import com.afkoders.batteryme.presentation.create_event.EventDetailsAgreement
+import com.afkoders.batteryme.presentation.create_event.EventDetailsFragment
+import com.afkoders.batteryme.presentation.create_event.EventDetailsPresenter
 import com.afkoders.batteryme.presentation.events.EventsAgreement
 import com.afkoders.batteryme.presentation.events.EventsFragment
 import com.afkoders.batteryme.presentation.events.EventsPresenter
@@ -89,6 +92,13 @@ interface MainActivityModule {
 
     @Binds
     fun leaderboardFragmentPresenter(leaderboardFragmentPresenter: LeaderboardPresenter): LeaderboardAgreement.Presenter
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun eventDetailFragment(): EventDetailsFragment?
+
+    @Binds
+    fun eventDetailsFragmentPresenter(eventDetailsFragment: EventDetailsPresenter): EventDetailsAgreement.Presenter
 
     @ActivityContext
     @Binds

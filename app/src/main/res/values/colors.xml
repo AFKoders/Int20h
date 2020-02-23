@@ -36,4 +36,5 @@
     <color name="battery_50">#F2994A</color>
     <color name="battery_20">#FF647C</color>
 
+    <color name="redButton">#FF647C</color>
 </resources>

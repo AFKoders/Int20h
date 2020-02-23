@@ -1,6 +1,7 @@
 package com.afkoders.batteryme.presentation.events.model
 
 import com.afkoders.batteryme.presentation.common.models.User
+import java.io.Serializable
 import java.util.*
 
 data class Event(
@@ -9,4 +10,4 @@ data class Event(
     val dateTime: Date,
     val location: String,
     val users: List<User>
-)
+): Serializable
