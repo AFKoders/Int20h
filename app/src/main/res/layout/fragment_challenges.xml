@@ -17,27 +17,30 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/clSwipeRefresh"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:clickable="true"
-            android:focusable="true"
-            android:layout_height="match_parent">
+            android:focusable="true">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvChallenges"
                 android:layout_width="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_height="match_parent"
-                android:scrollbars="vertical" />
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fabNewChallenge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="72dp"
                 android:layout_marginRight="16dp"
-                app:backgroundTint="@color/textPrimary"
+                android:layout_marginBottom="32dp"
+                android:tint="@color/colorPrimary"
+                app:tint="@color/white"
+                app:backgroundTint="@color/colorPrimary"
                 app:fabSize="normal"
                 app:layout_anchor="@id/rvChallenges"
-                app:layout_anchorGravity="bottom|right|end" />
+                app:layout_anchorGravity="bottom|right|end"
+                app:srcCompat="@drawable/ic_plus" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
