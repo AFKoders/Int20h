@@ -15,6 +15,9 @@ import com.afkoders.batteryme.presentation.challenges.ChallengesPresenter
 import com.afkoders.batteryme.presentation.create_challenge.CreateChallengeAgreement
 import com.afkoders.batteryme.presentation.create_challenge.CreateChallengeFragment
 import com.afkoders.batteryme.presentation.create_challenge.CreateChallengePresenter
+import com.afkoders.batteryme.presentation.create_event.CreateEventAgreement
+import com.afkoders.batteryme.presentation.create_event.CreateEventFragment
+import com.afkoders.batteryme.presentation.create_event.CreateEventPresenter
 import com.afkoders.batteryme.presentation.event_details.EventDetailsAgreement
 import com.afkoders.batteryme.presentation.event_details.EventDetailsFragment
 import com.afkoders.batteryme.presentation.event_details.EventDetailsPresenter
@@ -35,10 +38,19 @@ import com.afkoders.batteryme.presentation.splash.SplashPresenter
 import com.afkoders.batteryme.presentation.main.MainFragment
 import com.afkoders.batteryme.presentation.main.MainFragmentAgreement
 import com.afkoders.batteryme.presentation.main.MainFragmentPresenter
-import com.afkoders.batteryme.presentation.quize.PreQuizAgreement
-import com.afkoders.batteryme.presentation.quize.PreQuizFragment
-import com.afkoders.batteryme.presentation.quize.PreQuizPresenter
+import com.afkoders.batteryme.presentation.quiz.PreQuizAgreement
+import com.afkoders.batteryme.presentation.quiz.PreQuizFragment
+import com.afkoders.batteryme.presentation.quiz.PreQuizPresenter
 import com.afkoders.batteryme.presentation.logout.LogoutFragment
+import com.afkoders.batteryme.presentation.quiz.q1.Quiz1Agreement
+import com.afkoders.batteryme.presentation.quiz.q1.Quiz1Fragment
+import com.afkoders.batteryme.presentation.quiz.q1.Quiz1Presenter
+import com.afkoders.batteryme.presentation.quiz.q2.Quiz2Agreement
+import com.afkoders.batteryme.presentation.quiz.q2.Quiz2Fragment
+import com.afkoders.batteryme.presentation.quiz.q2.Quiz2Presenter
+import com.afkoders.batteryme.presentation.quiz.q3.Quiz3Agreement
+import com.afkoders.batteryme.presentation.quiz.q3.Quiz3Fragment
+import com.afkoders.batteryme.presentation.quiz.q3.Quiz3Presenter
 import com.afkoders.batteryme.presentation.test.TestAgreement
 import com.afkoders.batteryme.presentation.test.TestFragment
 import com.afkoders.batteryme.presentation.test.TestPresenter
@@ -59,7 +71,19 @@ interface MainActivityModule {
 
     @FragmentScope
     @ContributesAndroidInjector
-    fun quizeFragment(): PreQuizFragment?
+    fun quizFragment(): PreQuizFragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun quiz1Fragment(): Quiz1Fragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun quiz2Fragment(): Quiz2Fragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun quiz3Fragment(): Quiz3Fragment?
 
     @Binds
     fun testPresenter(testPresenter: TestPresenter): TestAgreement.Presenter
@@ -84,7 +108,16 @@ interface MainActivityModule {
     fun loginPresenter(loginPresenter: LoginPresenter): LoginAgreement.Presenter
 
     @Binds
-    fun quizePresenter(loginPresenter: PreQuizPresenter): PreQuizAgreement.Presenter
+    fun quizPresenter(loginPresenter: PreQuizPresenter): PreQuizAgreement.Presenter
+
+    @Binds
+    fun quiz1Presenter(loginPresenter: Quiz1Presenter): Quiz1Agreement.Presenter
+
+    @Binds
+    fun quiz2Presenter(loginPresenter: Quiz2Presenter): Quiz2Agreement.Presenter
+
+    @Binds
+    fun quiz3Presenter(loginPresenter: Quiz3Presenter): Quiz3Agreement.Presenter
 
     @FragmentScope
     @ContributesAndroidInjector
@@ -141,6 +174,13 @@ interface MainActivityModule {
 
     @Binds
     fun createChallengeFragmentPresenter(createChallengePresenter: CreateChallengePresenter): CreateChallengeAgreement.Presenter
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun createEventFragment(): CreateEventFragment?
+
+    @Binds
+    fun createEventFragmentPresenter(createEventPresenter: CreateEventPresenter): CreateEventAgreement.Presenter
 
     @ActivityContext
     @Binds

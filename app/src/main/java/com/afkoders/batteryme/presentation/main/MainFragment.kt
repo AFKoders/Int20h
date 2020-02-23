@@ -181,4 +181,10 @@ class MainFragment :
     fun navigateToSettings(){
         findNavController().navigateTo(R.id.action_batteryFragment_to_settingsFragment)
     }
+
+    fun navigateToEventCreation() {
+        findNavController().navigateTo(R.id.action_mainFragment_to_createEventFragment)
+    }
+
+
 }

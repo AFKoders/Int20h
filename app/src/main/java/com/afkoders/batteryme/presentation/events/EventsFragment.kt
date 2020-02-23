@@ -43,7 +43,7 @@ class EventsFragment :
             }.disposeByBagProvider()
 
         fabNewEvent.bindClick {
-            // TODO
+            (parentFragment as MainFragment).navigateToEventCreation()
         }
 
     }

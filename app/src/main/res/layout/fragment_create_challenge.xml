@@ -126,6 +126,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
+        style="@style/Button.Primary"
         android:id="@+id/btnCreateChallenge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
