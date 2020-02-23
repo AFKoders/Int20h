@@ -19,26 +19,7 @@ class LoginPresenter @Inject constructor(
     override fun saveUserToPrefs(user: User): Boolean {
         appPrefs.putUser(user)
         repository.addUserRemote(user)
-        val challenge = Challenge(
-            "Fire bucket challenge",
-            "nice description",
-            mutableListOf(
-                user,
-                User("another name", "givenName", "familyName", "email", "217727821", "", 66)
-            )
-        )
-        repository.addChallengeRemote(
-            challenge
-        )
 
-        repository.addUserToChallenge(User("fire lover", "oh yes", "oh ya", "hehe", "66661266216", "", 99), challenge.id)
-
-
-        repository.getAllChallenges { challenges ->
-            for(cha in challenges){
-                Log.d("chacha", cha.users.toString())
-            }
-        }
         return true
     }
 
