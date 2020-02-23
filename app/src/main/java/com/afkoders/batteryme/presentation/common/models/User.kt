@@ -1,6 +1,5 @@
 package com.afkoders.batteryme.presentation.common.models
 
-import android.net.Uri
 import java.io.Serializable
 
 data class User(

@@ -153,5 +153,41 @@
         <action
             android:id="@+id/action_quiz3Fragment_to_quiz2Fragment"
             app:destination="@id/quiz2Fragment" />
+        <action
+            android:id="@+id/action_quiz3Fragment_to_quiz4Fragment"
+            app:destination="@id/quiz4Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quiz4Fragment"
+        android:name="com.afkoders.batteryme.presentation.quiz.q4.Quiz4Fragment"
+        android:label="Quiz4Fragment">
+        <action
+            android:id="@+id/action_quiz4Fragment_to_quiz3Fragment"
+            app:destination="@id/quiz3Fragment" />
+        <action
+            android:id="@+id/action_quiz4Fragment_to_quiz5Fragment"
+            app:destination="@id/quiz5Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quiz5Fragment"
+        android:name="com.afkoders.batteryme.presentation.quiz.q5.Quiz5Fragment"
+        android:label="Quiz5Fragment">
+        <action
+            android:id="@+id/action_quiz5Fragment_to_quiz4Fragment"
+            app:destination="@id/quiz4Fragment" />
+        <action
+            android:id="@+id/action_quiz5Fragment_to_quizFinishFragment"
+            app:destination="@id/quizFinishFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quizFinishFragment"
+        android:name="com.afkoders.batteryme.presentation.quiz.QuizFinishFragment"
+        android:label="QuizFinishFragment">
+        <action
+            android:id="@+id/action_quizFinishFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

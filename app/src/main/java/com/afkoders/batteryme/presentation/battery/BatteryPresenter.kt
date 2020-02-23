@@ -38,4 +38,8 @@ class BatteryPresenter @Inject constructor(
                 // handle error
             })
     }
+
+    override fun getPercentage(): Int {
+        return appPrefs.user.score
+    }
 }

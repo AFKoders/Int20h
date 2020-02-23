@@ -1,17 +1,14 @@
-package com.afkoders.batteryme.presentation.battery
+package com.afkoders.batteryme.presentation.quiz
 
 import com.afkoders.batteryme.presentation.base.BasePresenter
 import com.afkoders.batteryme.presentation.base.BaseView
 
-interface BatteryAgreement {
+interface QuizFinishAgreement {
     interface View : BaseView {
-        fun setPercentage(percents: Int)
+        fun redirect()
     }
 
     interface Presenter : BasePresenter<View> {
-       fun askPercentage()
-        fun getPercentage(): Int
-
-        fun startTimer()
+        fun fire()
     }
 }

@@ -28,19 +28,6 @@ class AppPrefs constructor(context: Context, private val gson: Gson) {
             object : TypeToken<User>() {}.type
         ) ?: User("", "", "", "", "", "", 0)
 
-    /*fun addToHistory(track: History) {
-        val newList = history
-        newList.add(track)
-        history = newList
-    }
-
-    var history: MutableList<History>
-        set(value) = prefs.edit().putString(HISTORY_LIST, gson.toJson(value)).apply()
-        get() = gson.fromJson(
-            prefs.getString(HISTORY_LIST, ""),
-            object : TypeToken<List<History>>() {}.type
-        ) ?: mutableListOf()*/
-
     fun clear() {
         prefs.edit().clear().apply()
     }

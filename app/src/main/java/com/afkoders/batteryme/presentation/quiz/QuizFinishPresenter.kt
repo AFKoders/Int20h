@@ -1,4 +1,4 @@
-package com.afkoders.batteryme.presentation.logout
+package com.afkoders.batteryme.presentation.quiz
 
 import com.afkoders.batteryme.data.prefs.AppPrefs
 import com.afkoders.batteryme.presentation.base.BasePresenterImpl
@@ -6,13 +6,12 @@ import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class LogoutPresenter @Inject constructor(private val appPrefs: AppPrefs) :
-    BasePresenterImpl<String, LogoutAgreement.View>(),
-    LogoutAgreement.Presenter {
+class QuizFinishPresenter @Inject constructor(private val appPrefs: AppPrefs) :
+    BasePresenterImpl<String, QuizFinishAgreement.View>(),
+    QuizFinishAgreement.Presenter {
     override fun fire() {
         Observable.just(Any())
             .delay(1, TimeUnit.SECONDS)
-            .doOnNext { appPrefs.clear() }
             .subscribe {
                 view?.redirect()
             }

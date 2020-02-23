@@ -15,82 +15,35 @@ class ChallengesPresenter @Inject constructor(
     ChallengesAgreement.Presenter {
 
     override fun uploadData() {
-
-        /*
-        val myChallenges = listOf(
-            Challenge(
-                "title1", "description1", mutableListOf(
-                    User("", "", "", "", "", "", 0)
-                )
-            ),
-            Challenge("title2", "description2", mutableListOf())
-        )
-        val allChallenges = listOf(
-            Challenge(
-                "title1", "description1", mutableListOf(
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", "")
-                )
-            ),
-            Challenge("title2", "description2", mutableListOf()),
-            Challenge(
-                "title3", "description4", mutableListOf(
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", ""),
-                    User("", "", "", "", "", "")
-                )
-            )
-        )
-
-        model = listOf(HeaderItem("My challenges"))
-            .plus(myChallenges.map { AdapterDelegateItem.Model(it) })
-            .plus(HeaderItem("All challenges"))
-            .plus(allChallenges.map { AdapterDelegateItem.Model(it) })
-*/
         repository.getAllChallenges { challenges ->
-            view?.populateData(mutableListOf(HeaderItem("My challenges"))
-                .plus(challenges
-                    .filter { it.users.any { it.id == appPrefs.user.id } }.map {
-                        AdapterDelegateItem.Model(
-                            it
-                        )
-                    }).plus(mutableListOf(HeaderItem("All challenges")).plus(challenges
-                    .filter { it.users.none { it.id == appPrefs.user.id } }.map {
-                        AdapterDelegateItem.Model(
-                            it
-                        )
-                    })
-                )
-            )
-        }
+            val myChallenges = challenges
+                .filter { it.users.any { it.id == appPrefs.user.id } }.map {
+                    AdapterDelegateItem.Model(
+                        it
+                    )
+                }
 
+            val allChallenges = challenges
+                .filter { it.users.none { it.id == appPrefs.user.id } }.map {
+                    AdapterDelegateItem.Model(
+                        it
+                    )
+                }
+
+            val result = if(myChallenges.isNotEmpty()) {
+                mutableListOf(HeaderItem("My challenges")).plus(myChallenges)
+            } else {
+                listOf()
+            }.plus(
+                if(allChallenges.isNotEmpty()) {
+                    mutableListOf(HeaderItem("All challenges")).plus(allChallenges)
+                } else {
+                    listOf()
+                }
+            )
+
+            model = result
+            view?.populateData(result)
+        }
     }
 }

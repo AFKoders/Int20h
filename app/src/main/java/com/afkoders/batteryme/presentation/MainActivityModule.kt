@@ -31,17 +31,12 @@ import com.afkoders.batteryme.presentation.login.LoginAgreement
 import com.afkoders.batteryme.presentation.login.LoginFragment
 import com.afkoders.batteryme.presentation.login.LoginPresenter
 import com.afkoders.batteryme.presentation.logout.LogoutAgreement
+import com.afkoders.batteryme.presentation.logout.LogoutFragment
 import com.afkoders.batteryme.presentation.logout.LogoutPresenter
-import com.afkoders.batteryme.presentation.splash.SplashAgreement
-import com.afkoders.batteryme.presentation.splash.SplashFragment
-import com.afkoders.batteryme.presentation.splash.SplashPresenter
 import com.afkoders.batteryme.presentation.main.MainFragment
 import com.afkoders.batteryme.presentation.main.MainFragmentAgreement
 import com.afkoders.batteryme.presentation.main.MainFragmentPresenter
-import com.afkoders.batteryme.presentation.quiz.PreQuizAgreement
-import com.afkoders.batteryme.presentation.quiz.PreQuizFragment
-import com.afkoders.batteryme.presentation.quiz.PreQuizPresenter
-import com.afkoders.batteryme.presentation.logout.LogoutFragment
+import com.afkoders.batteryme.presentation.quiz.*
 import com.afkoders.batteryme.presentation.quiz.q1.Quiz1Agreement
 import com.afkoders.batteryme.presentation.quiz.q1.Quiz1Fragment
 import com.afkoders.batteryme.presentation.quiz.q1.Quiz1Presenter
@@ -51,6 +46,15 @@ import com.afkoders.batteryme.presentation.quiz.q2.Quiz2Presenter
 import com.afkoders.batteryme.presentation.quiz.q3.Quiz3Agreement
 import com.afkoders.batteryme.presentation.quiz.q3.Quiz3Fragment
 import com.afkoders.batteryme.presentation.quiz.q3.Quiz3Presenter
+import com.afkoders.batteryme.presentation.quiz.q4.Quiz4Agreement
+import com.afkoders.batteryme.presentation.quiz.q4.Quiz4Fragment
+import com.afkoders.batteryme.presentation.quiz.q4.Quiz4Presenter
+import com.afkoders.batteryme.presentation.quiz.q5.Quiz5Agreement
+import com.afkoders.batteryme.presentation.quiz.q5.Quiz5Fragment
+import com.afkoders.batteryme.presentation.quiz.q5.Quiz5Presenter
+import com.afkoders.batteryme.presentation.splash.SplashAgreement
+import com.afkoders.batteryme.presentation.splash.SplashFragment
+import com.afkoders.batteryme.presentation.splash.SplashPresenter
 import com.afkoders.batteryme.presentation.test.TestAgreement
 import com.afkoders.batteryme.presentation.test.TestFragment
 import com.afkoders.batteryme.presentation.test.TestPresenter
@@ -85,6 +89,18 @@ interface MainActivityModule {
     @ContributesAndroidInjector
     fun quiz3Fragment(): Quiz3Fragment?
 
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun quiz4Fragment(): Quiz4Fragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun quiz5Fragment(): Quiz5Fragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun quizFinishFragment(): QuizFinishFragment?
+
     @Binds
     fun testPresenter(testPresenter: TestPresenter): TestAgreement.Presenter
 
@@ -95,29 +111,37 @@ interface MainActivityModule {
     @Binds
     fun splashPresenter(splashPresenter: SplashPresenter): SplashAgreement.Presenter
 
-
     @FragmentScope
     @ContributesAndroidInjector
     fun logoutFragment(): LogoutFragment?
 
     @Binds
-    fun logoutPresenter(logoutPresenter: LogoutPresenter): LogoutAgreement.Presenter
+    fun logoutPresenter(presenter: LogoutPresenter): LogoutAgreement.Presenter
 
 
     @Binds
-    fun loginPresenter(loginPresenter: LoginPresenter): LoginAgreement.Presenter
+    fun loginPresenter(presenter: LoginPresenter): LoginAgreement.Presenter
 
     @Binds
-    fun quizPresenter(loginPresenter: PreQuizPresenter): PreQuizAgreement.Presenter
+    fun quizPresenter(presenter: PreQuizPresenter): PreQuizAgreement.Presenter
 
     @Binds
-    fun quiz1Presenter(loginPresenter: Quiz1Presenter): Quiz1Agreement.Presenter
+    fun quiz1Presenter(presenter: Quiz1Presenter): Quiz1Agreement.Presenter
 
     @Binds
-    fun quiz2Presenter(loginPresenter: Quiz2Presenter): Quiz2Agreement.Presenter
+    fun quiz2Presenter(presenter: Quiz2Presenter): Quiz2Agreement.Presenter
 
     @Binds
-    fun quiz3Presenter(loginPresenter: Quiz3Presenter): Quiz3Agreement.Presenter
+    fun quiz3Presenter(presenter: Quiz3Presenter): Quiz3Agreement.Presenter
+
+    @Binds
+    fun quiz4Presenter(presenter: Quiz4Presenter): Quiz4Agreement.Presenter
+
+    @Binds
+    fun quiz5Presenter(presenter: Quiz5Presenter): Quiz5Agreement.Presenter
+
+    @Binds
+    fun quizFinishPresenter(presenter: QuizFinishPresenter): QuizFinishAgreement.Presenter
 
     @FragmentScope
     @ContributesAndroidInjector
