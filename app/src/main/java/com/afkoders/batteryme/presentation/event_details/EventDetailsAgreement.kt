@@ -10,6 +10,7 @@ interface EventDetailsAgreement {
         fun joinedToEvent()
         fun leavedFromEvent()
         fun initButton(isJoined: Boolean)
+        fun finishScreen()
     }
 
     interface Presenter: BasePresenter<View> {

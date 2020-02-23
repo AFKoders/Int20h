@@ -12,10 +12,12 @@ class ChallengeDetailsPresenter @Inject constructor(private val appPrefs: AppPre
     ChallengeDetailsAgreement.Presenter {
     override fun joinToChallenge() {
         repository.addUserToChallenge(appPrefs.user, model!!.id)
+        view?.finishView()
     }
 
     override fun leaveFromChallenge() {
         repository.removeUserFromChallenge(appPrefs.user, model!!.id)
+        view?.finishView()
     }
 
     override fun setModel(challenge: Challenge) {

@@ -12,10 +12,12 @@ class EventDetailsPresenter @Inject constructor(private val appPrefs: AppPrefs,
     EventDetailsAgreement.Presenter {
     override fun joinToEvent() {
         repository.addUserToEvent(appPrefs.user, model!!.id)
+        view?.finishScreen()
     }
 
     override fun leaveFromEvent() {
         repository.removeUserFromEvent(appPrefs.user, model!!.id)
+        view?.finishScreen()
     }
 
     override fun setModel(event: Event) {

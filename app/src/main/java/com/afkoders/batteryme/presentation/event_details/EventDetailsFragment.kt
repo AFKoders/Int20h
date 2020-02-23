@@ -39,7 +39,6 @@ class EventDetailsFragment :
         )
         btnJoinLeaveEvent.text = "Leave the event"
         btnJoinLeaveEvent.bindClick { presenter.leaveFromEvent() }
-        finish()
     }
 
     override fun leavedFromEvent() {
@@ -51,18 +50,19 @@ class EventDetailsFragment :
         )
         btnJoinLeaveEvent.text = "Join the event"
         btnJoinLeaveEvent.bindClick { presenter.joinToEvent() }
-        finish()
     }
 
     override fun initButton(isJoined: Boolean) {
+        btnJoinLeaveEvent.makeVisible()
+        if (isJoined) {
+            joinedToEvent()
+        } else {
+            leavedFromEvent()
+        }
+    }
 
-            btnJoinLeaveEvent.makeVisible()
-            if (isJoined) {
-                joinedToEvent()
-            } else {
-                leavedFromEvent()
-            }
-
+    override fun finishScreen() {
+        finish()
     }
 
     override fun returnThisHerePlease(): EventDetailsAgreement.View = this
@@ -83,15 +83,23 @@ class EventDetailsFragment :
 
         event.users.forEach {
             val flUser = FrameLayout(requireContext()).apply {
-                layoutParams = LinearLayout.LayoutParams(48.dpToPx(requireContext()),48.dpToPx(requireContext())).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    48.dpToPx(requireContext()),
+                    48.dpToPx(requireContext())
+                ).apply {
                     marginStart = (-16).dpToPx(requireContext())
                 }
-                background = AppCompatResources.getDrawable(requireContext(), R.drawable.background_user)
+                background =
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.background_user)
             }
             val ivUser = ImageView(requireContext()).apply {
-                layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT)
+                layoutParams = FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    FrameLayout.LayoutParams.MATCH_PARENT
+                )
             }
-            Glide.with(requireContext()).load(it.photo).placeholder(R.drawable.ic_placeholder_users).into(ivUser)
+            Glide.with(requireContext()).load(it.photo).placeholder(R.drawable.ic_placeholder_users)
+                .into(ivUser)
 
             flUser.addView(ivUser)
             llUsers.addView(flUser)

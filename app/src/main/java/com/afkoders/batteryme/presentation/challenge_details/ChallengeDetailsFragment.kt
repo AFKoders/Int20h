@@ -69,7 +69,6 @@ class ChallengeDetailsFragment :
         )
         btnJoinLeaveChallenge.text = "Leave the challenge"
         btnJoinLeaveChallenge.bindClick { presenter.leaveFromChallenge() }
-        finish()
     }
 
     override fun leavedFromChallenge() {
@@ -81,7 +80,6 @@ class ChallengeDetailsFragment :
         )
         btnJoinLeaveChallenge.text = "Join to challenge"
         btnJoinLeaveChallenge.bindClick { presenter.joinToChallenge() }
-        finish()
     }
 
     override fun initButton(isJoined: Boolean) {
@@ -91,6 +89,10 @@ class ChallengeDetailsFragment :
         } else {
             leavedFromChallenge()
         }
+    }
+
+    override fun finishView() {
+        finish()
     }
 
     override fun returnThisHerePlease(): ChallengeDetailsAgreement.View = this
