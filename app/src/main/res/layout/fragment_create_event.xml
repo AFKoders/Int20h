@@ -7,8 +7,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -104,11 +103,11 @@
                 android:id="@+id/tilDescriptionEditText"
                 style="@style/EditText"
                 android:layout_width="0dp"
-                android:layout_height="130dp"
-                android:minHeight="130dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
+                android:maxHeight="0dp"
                 android:layout_marginBottom="16dp"
                 app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,6 +123,8 @@
                     android:fontFamily="@font/rubik_regular"
                     android:hint="Write a description"
                     android:imeOptions="actionNext"
+                    android:singleLine="false"
+                    android:lines="5"
                     android:inputType="text"
                     android:minHeight="64dp"
                     android:padding="16dp"
@@ -195,39 +196,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tilLocationEditText" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilDateEditText"
-                style="@style/EditText"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDate"
+                style="@style/Button.Secondary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="100dp"
-                app:hintEnabled="false"
+                android:clickable="false"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="17 Feb"
+                android:textAllCaps="false"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tilTimeEditText"
+                app:layout_constraintEnd_toStartOf="@id/btnTime"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvDateLabel"
-                app:layout_constraintVertical_bias="0.0">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dateEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusableInTouchMode="true"
-                    android:fontFamily="@font/rubik_regular"
-                    android:hint="Write a place name"
-                    android:imeOptions="actionNext"
-                    android:inputType="text"
-                    android:minHeight="64dp"
-                    android:padding="16dp"
-                    android:paddingEnd="48dp"
-                    android:textColor="@color/inputTextColor"
-                    android:textColorHint="@color/placeholderTextColor"
-                    android:textCursorDrawable="@drawable/cursor"
-                    android:textSize="@dimen/secondary_text_size" />
-            </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/tvTimeLabel"
@@ -238,43 +226,31 @@
                 android:text="Time"
                 android:textColor="@color/textPrimary"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@id/tilTimeEditText"
-                app:layout_constraintStart_toStartOf="@id/tilTimeEditText"
+                app:layout_constraintEnd_toEndOf="@id/btnTime"
+                app:layout_constraintStart_toStartOf="@id/btnTime"
                 app:layout_constraintTop_toBottomOf="@id/tilLocationEditText" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilTimeEditText"
-                style="@style/EditText"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTime"
+                style="@style/Button.Secondary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="100dp"
-                app:hintEnabled="false"
+                android:clickable="false"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="09:00"
+                android:textAllCaps="false"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tilDateEditText"
+                app:layout_constraintStart_toEndOf="@id/btnDate"
                 app:layout_constraintTop_toBottomOf="@+id/tvTimeLabel"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintVertical_bias="0.0" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/timeEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusableInTouchMode="true"
-                    android:fontFamily="@font/rubik_regular"
-                    android:hint="Write a place name"
-                    android:imeOptions="actionNext"
-                    android:inputType="text"
-                    android:minHeight="64dp"
-                    android:padding="16dp"
-                    android:paddingEnd="48dp"
-                    android:textColor="@color/inputTextColor"
-                    android:textColorHint="@color/placeholderTextColor"
-                    android:textCursorDrawable="@drawable/cursor"
-                    android:textSize="@dimen/secondary_text_size" />
-            </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

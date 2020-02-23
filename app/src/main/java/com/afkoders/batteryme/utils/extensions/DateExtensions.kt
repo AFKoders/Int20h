@@ -15,3 +15,6 @@ fun Date.formatEventDate(): String =
 fun Date.formatEventTime(): String =
   SimpleDateFormat("HH:mm", Locale.getDefault()).format(this)
 
+fun Date.formatMonth(): String =
+  SimpleDateFormat("MMM", Locale.getDefault()).format(this)
+

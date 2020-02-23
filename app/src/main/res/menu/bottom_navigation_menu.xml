@@ -23,6 +23,6 @@
         android:id="@+id/menuItemLeaderboard"
         android:enabled="true"
         android:icon="@drawable/ic_leaderboard"
-        android:title="Leaderboard"
+        android:title="Chargeboard"
         app:showAsAction="always" />
 </menu>
