@@ -85,7 +85,7 @@ class EventDetailsFragment :
             val ivUser = ImageView(requireContext()).apply {
                 layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT)
             }
-            Glide.with(requireContext()).load(it.photo).into(ivUser)
+            Glide.with(requireContext()).load(it.photo).placeholder(R.drawable.ic_placeholder_users).into(ivUser)
 
             flUser.addView(ivUser)
             llUsers.addView(flUser)
