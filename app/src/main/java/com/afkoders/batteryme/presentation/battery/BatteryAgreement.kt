@@ -4,11 +4,11 @@ import com.afkoders.batteryme.presentation.base.BasePresenter
 import com.afkoders.batteryme.presentation.base.BaseView
 
 interface BatteryAgreement {
-    interface View: BaseView {
-
+    interface View : BaseView {
+        fun setPercentage(percents: Int)
     }
 
-    interface Presenter: BasePresenter<View> {
-
+    interface Presenter : BasePresenter<View> {
+       fun askPercentage()
     }
 }

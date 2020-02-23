@@ -10,6 +10,7 @@ import com.afkoders.batteryme.presentation.main.MainFragment
 import com.afkoders.batteryme.utils.extensions.dpToPx
 import com.afkoders.batteryme.utils.extensions.navigateTo
 import kotlinx.android.synthetic.main.fragment_battery.*
+import kotlinx.android.synthetic.main.item_leaderboard.*
 
 class BatteryFragment :
     BaseFragmentImpl<BatteryAgreement.Presenter, BatteryAgreement.View>(R.layout.fragment_battery),
@@ -25,13 +26,21 @@ class BatteryFragment :
             actionNegativeText = "Dismiss"
         }
 
+
         ivSettings.bindClick {
             (parentFragment as MainFragment).navigateToSettings()
-
-
         }
     }
 
+    override fun setPercentage(percents: Int) {
+        vBattery.update(percents)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.askPercentage()
+
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vBattery.innerCoeficient = 8.dpToPx(requireContext()).toFloat()
