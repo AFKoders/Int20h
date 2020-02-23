@@ -1,15 +1,17 @@
 package com.afkoders.batteryme.presentation.challenge_details
 
 import com.afkoders.batteryme.data.prefs.AppPrefs
+import com.afkoders.batteryme.data.repository.Repository
 import com.afkoders.batteryme.presentation.base.BasePresenterImpl
 import com.afkoders.batteryme.presentation.challenges.model.Challenge
 import javax.inject.Inject
 
-class ChallengeDetailsPresenter @Inject constructor(private val appPrefs: AppPrefs) :
+class ChallengeDetailsPresenter @Inject constructor(private val appPrefs: AppPrefs,
+                                                    private val repository: Repository) :
     BasePresenterImpl<Challenge, ChallengeDetailsAgreement.View>(),
     ChallengeDetailsAgreement.Presenter {
     override fun joinToChallenge() {
-        // TODO
+        repository.addUserToChallenge(appPrefs.user, model!!.id)
     }
 
     override fun leaveFromChallenge() {

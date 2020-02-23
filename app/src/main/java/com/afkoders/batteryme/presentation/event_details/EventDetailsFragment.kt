@@ -10,7 +10,12 @@ import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.events.model.Event
 import com.afkoders.batteryme.utils.extensions.*
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.fragment_challenge_details.*
 import kotlinx.android.synthetic.main.fragment_event_details.*
+import kotlinx.android.synthetic.main.fragment_event_details.ivBack
+import kotlinx.android.synthetic.main.fragment_event_details.llUsers
+import kotlinx.android.synthetic.main.fragment_event_details.tvDescription
+import kotlinx.android.synthetic.main.fragment_event_details.tvTitle
 
 class EventDetailsFragment :
     BaseFragmentImpl<EventDetailsAgreement.Presenter, EventDetailsAgreement.View>(R.layout.fragment_event_details),
@@ -31,6 +36,7 @@ class EventDetailsFragment :
                 R.color.redButton
             )
         )
+        btnJoinLeaveChallenge.text = "Leave the event"
         btnJoinLeaveEvent.bindClick { presenter.leaveFromEvent() }
     }
 
@@ -41,6 +47,7 @@ class EventDetailsFragment :
                 R.color.colorPrimary
             )
         )
+        btnJoinLeaveChallenge.text = "Join the event"
         btnJoinLeaveEvent.bindClick { presenter.joinToEvent() }
     }
 

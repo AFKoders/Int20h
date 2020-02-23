@@ -60,6 +60,7 @@ class ChallengeDetailsFragment :
                 R.color.redButton
             )
         )
+        btnJoinLeaveChallenge.text = "Leave the challenge"
         btnJoinLeaveChallenge.bindClick { presenter.leaveFromChallenge() }
     }
 
@@ -70,6 +71,7 @@ class ChallengeDetailsFragment :
                 R.color.colorPrimary
             )
         )
+        btnJoinLeaveChallenge.text = "Join to challenge"
         btnJoinLeaveChallenge.bindClick { presenter.joinToChallenge() }
     }
 
