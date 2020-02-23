@@ -36,7 +36,7 @@ class EventDetailsFragment :
                 R.color.redButton
             )
         )
-        btnJoinLeaveChallenge.text = "Leave the event"
+        btnJoinLeaveEvent.text = "Leave the event"
         btnJoinLeaveEvent.bindClick { presenter.leaveFromEvent() }
     }
 
