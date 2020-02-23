@@ -9,8 +9,14 @@ import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.challenges.model.Challenge
 import com.afkoders.batteryme.utils.extensions.*
+import com.afkoders.batteryme.utils.extensions.widget.makeGone
+import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_challenge_details.*
+import kotlinx.android.synthetic.main.fragment_challenge_details.ivBack
+import kotlinx.android.synthetic.main.fragment_challenge_details.llUsers
+import kotlinx.android.synthetic.main.fragment_challenge_details.tvDescription
+import kotlinx.android.synthetic.main.fragment_challenge_details.tvTitle
 
 class ChallengeDetailsFragment :
     BaseFragmentImpl<ChallengeDetailsAgreement.Presenter, ChallengeDetailsAgreement.View>(R.layout.fragment_challenge_details),
@@ -62,6 +68,7 @@ class ChallengeDetailsFragment :
         )
         btnJoinLeaveChallenge.text = "Leave the challenge"
         btnJoinLeaveChallenge.bindClick { presenter.leaveFromChallenge() }
+        finish()
     }
 
     override fun leavedFromChallenge() {
@@ -73,13 +80,19 @@ class ChallengeDetailsFragment :
         )
         btnJoinLeaveChallenge.text = "Join to challenge"
         btnJoinLeaveChallenge.bindClick { presenter.joinToChallenge() }
+        finish()
     }
 
-    override fun initButton(isJoined: Boolean) {
-        if (isJoined) {
-            joinedToChallenge()
+    override fun initButton(isHisChallenge: Boolean, isJoined: Boolean) {
+        if(isHisChallenge){
+            btnJoinLeaveChallenge.makeGone()
         } else {
-            leavedFromChallenge()
+            btnJoinLeaveChallenge.makeVisible()
+            if (isJoined) {
+                joinedToChallenge()
+            } else {
+                leavedFromChallenge()
+            }
         }
     }
 

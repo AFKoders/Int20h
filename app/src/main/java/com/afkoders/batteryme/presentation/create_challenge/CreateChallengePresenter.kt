@@ -13,7 +13,7 @@ class CreateChallengePresenter @Inject constructor(private val appPrefs: AppPref
     CreateChallengeAgreement.Presenter {
 
     override fun createChallenge(title: String, description: String) {
-        repository.addChallengeRemote(Challenge(title, description, mutableListOf(appPrefs.user)))
+        repository.addChallengeRemote(Challenge(title, description, mutableListOf()))
         view?.challengeCreated()
     }
 }

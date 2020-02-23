@@ -20,7 +20,7 @@ class EventDetailsPresenter @Inject constructor(private val appPrefs: AppPrefs,
 
     override fun setModel(event: Event) {
         model = event
-        view?.initButton(event.users.contains(appPrefs.user))
+        view?.initButton(event.users.isEmpty() || !event.users.contains(appPrefs.user), event.users.contains(appPrefs.user))
         view?.showData(event)
     }
 
