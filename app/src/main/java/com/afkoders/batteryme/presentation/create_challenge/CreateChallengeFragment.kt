@@ -7,7 +7,9 @@ import com.afkoders.batteryme.utils.extensions.finish
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
+import kotlinx.android.synthetic.main.fragment_challenge_details.*
 import kotlinx.android.synthetic.main.fragment_create_challenge.*
+import kotlinx.android.synthetic.main.fragment_create_challenge.ivBack
 
 class CreateChallengeFragment :
     BaseFragmentImpl<CreateChallengeAgreement.Presenter, CreateChallengeAgreement.View>(R.layout.fragment_create_challenge),
@@ -17,6 +19,8 @@ class CreateChallengeFragment :
     }
 
     override fun setupInputs() {
+        ivBack.bindClick { finish() }
+
         Observable.combineLatest(
             RxTextView.textChanges(titleEditText),
             RxTextView.textChanges(descriptionEditText),

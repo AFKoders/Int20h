@@ -68,6 +68,14 @@
             app:launchSingleTop="false"
             app:popEnterAnim="@anim/enter_from_left"
             app:popExitAnim="@anim/exit_to_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_createEventFragment"
+            app:destination="@id/createEventFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"/>
     </fragment>
 
     <fragment
@@ -102,4 +110,8 @@
         android:id="@+id/createChallengeFragment"
         android:name="com.afkoders.batteryme.presentation.create_challenge.CreateChallengeFragment"
         android:label="CreateChallengeFragment" />
+    <fragment
+        android:id="@+id/createEventFragment"
+        android:name="com.afkoders.batteryme.presentation.create_event.CreateEventFragment"
+        android:label="CreateEventFragment" />
 </navigation>

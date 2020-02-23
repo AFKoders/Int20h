@@ -15,6 +15,9 @@ import com.afkoders.batteryme.presentation.challenges.ChallengesPresenter
 import com.afkoders.batteryme.presentation.create_challenge.CreateChallengeAgreement
 import com.afkoders.batteryme.presentation.create_challenge.CreateChallengeFragment
 import com.afkoders.batteryme.presentation.create_challenge.CreateChallengePresenter
+import com.afkoders.batteryme.presentation.create_event.CreateEventAgreement
+import com.afkoders.batteryme.presentation.create_event.CreateEventFragment
+import com.afkoders.batteryme.presentation.create_event.CreateEventPresenter
 import com.afkoders.batteryme.presentation.event_details.EventDetailsAgreement
 import com.afkoders.batteryme.presentation.event_details.EventDetailsFragment
 import com.afkoders.batteryme.presentation.event_details.EventDetailsPresenter
@@ -141,6 +144,13 @@ interface MainActivityModule {
 
     @Binds
     fun createChallengeFragmentPresenter(createChallengePresenter: CreateChallengePresenter): CreateChallengeAgreement.Presenter
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun createEventFragment(): CreateEventFragment?
+
+    @Binds
+    fun createEventFragmentPresenter(createEventPresenter: CreateEventPresenter): CreateEventAgreement.Presenter
 
     @ActivityContext
     @Binds
