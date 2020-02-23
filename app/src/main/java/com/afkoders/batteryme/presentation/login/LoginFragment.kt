@@ -22,9 +22,7 @@ class LoginFragment :
             .build()
 
         mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
-        mGoogleSignInClient.signOut()
         val account = GoogleSignIn.getLastSignedInAccount(requireActivity())
-        updateUserPrefs(account)
 
         if (account != null) {
             navigateToMainScreen()
@@ -59,7 +57,8 @@ class LoginFragment :
             account?.familyName ?: "",
             account?.email ?: "",
             account?.id ?: "",
-            account?.photoUrl.toString()
+            account?.photoUrl,
+            99
         )
         presenter.saveUserToPrefs(user)
     }

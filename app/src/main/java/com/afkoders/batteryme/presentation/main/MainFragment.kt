@@ -177,4 +177,8 @@ class MainFragment :
     fun navigateToChallengeCreation() {
         findNavController().navigateTo(R.id.action_mainFragment_to_createChallengeFragment)
     }
+
+    fun navigateToSettings(){
+        findNavController().navigateTo(R.id.action_batteryFragment_to_settingsFragment)
+    }
 }

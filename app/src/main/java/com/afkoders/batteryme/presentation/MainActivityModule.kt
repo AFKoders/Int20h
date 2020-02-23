@@ -27,6 +27,8 @@ import com.afkoders.batteryme.presentation.leaderboard.LeaderboardPresenter
 import com.afkoders.batteryme.presentation.login.LoginAgreement
 import com.afkoders.batteryme.presentation.login.LoginFragment
 import com.afkoders.batteryme.presentation.login.LoginPresenter
+import com.afkoders.batteryme.presentation.logout.LogoutAgreement
+import com.afkoders.batteryme.presentation.logout.LogoutPresenter
 import com.afkoders.batteryme.presentation.splash.SplashAgreement
 import com.afkoders.batteryme.presentation.splash.SplashFragment
 import com.afkoders.batteryme.presentation.splash.SplashPresenter
@@ -36,6 +38,7 @@ import com.afkoders.batteryme.presentation.main.MainFragmentPresenter
 import com.afkoders.batteryme.presentation.quize.PreQuizAgreement
 import com.afkoders.batteryme.presentation.quize.PreQuizFragment
 import com.afkoders.batteryme.presentation.quize.PreQuizPresenter
+import com.afkoders.batteryme.presentation.logout.LogoutFragment
 import com.afkoders.batteryme.presentation.test.TestAgreement
 import com.afkoders.batteryme.presentation.test.TestFragment
 import com.afkoders.batteryme.presentation.test.TestPresenter
@@ -67,6 +70,15 @@ interface MainActivityModule {
 
     @Binds
     fun splashPresenter(splashPresenter: SplashPresenter): SplashAgreement.Presenter
+
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun logoutFragment(): LogoutFragment?
+
+    @Binds
+    fun logoutPresenter(logoutPresenter: LogoutPresenter): LogoutAgreement.Presenter
+
 
     @Binds
     fun loginPresenter(loginPresenter: LoginPresenter): LoginAgreement.Presenter

@@ -4,10 +4,11 @@ import android.net.Uri
 import java.io.Serializable
 
 data class User(
-    val name: String,
-    val givenName: String,
-    val familyName: String,
-    val email: String,
-    val id: String,
-    val photo: String?
+    val name: String = "",
+    val givenName: String = "",
+    val familyName: String = "",
+    val email: String = "",
+    val id: String = "",
+    val photo: Uri? = null,
+    val score: Int = 0
 ): Serializable

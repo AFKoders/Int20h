@@ -15,13 +15,13 @@ class EventsPresenter @Inject constructor() :
     override fun uploadData() {
         // TODO fetch data from firebase
         val myEvents = listOf(
-            Event("title1", "description1", Date(), "Kitchen", listOf()),
+            Event("title1", "description1", Date(), "Kitchen", mutableListOf()),
             Event(
                 "title2",
                 "description2",
                 Date(),
                 "Room1",
-                listOf(
+                mutableListOf(
                     User("", "", "", "", "", null),
                     User("", "", "", "", "", null),
                     User("", "", "", "", "", null),
@@ -48,9 +48,9 @@ class EventsPresenter @Inject constructor() :
             )
         )
         val allEvents = listOf(
-            Event("title1", "description1", Date(), "Kitchen", listOf()),
-            Event("title2", "description2", Date(), "Room1", listOf()),
-            Event("title3", "description4", Date(), "Room3", listOf())
+            Event("title1", "description1", Date(), "Kitchen", mutableListOf()),
+            Event("title2", "description2", Date(), "Room1", mutableListOf()),
+            Event("title3", "description4", Date(), "Room3", mutableListOf())
         )
 
         model = listOf(HeaderItem("My events"))

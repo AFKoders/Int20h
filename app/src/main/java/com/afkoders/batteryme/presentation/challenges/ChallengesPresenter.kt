@@ -16,18 +16,13 @@ class ChallengesPresenter @Inject constructor() :
     override fun uploadData() {
         // TODO fetch data from firebase
         val myChallenges = listOf(
-            Challenge("title1", "description1", listOf(
-                User("", "", "", "", "", null),
-                User("", "", "", "", "", null),
-                User("", "", "", "", "", null),
-                User("", "", "", "", "", null),
-                User("", "", "", "", "", null),
-                User("", "", "", "", "", null)
+            Challenge("title1", "description1", mutableListOf(
+                        User("", "", "", "", "", null, 0)
             )),
-            Challenge("title2", "description2", listOf())
+            Challenge("title2", "description2", mutableListOf())
         )
         val allChallenges = listOf(
-            Challenge("title1", "description1", listOf(
+            Challenge("title1", "description1", mutableListOf(
                 User("", "", "", "", "", null),
                 User("", "", "", "", "", null),
                 User("", "", "", "", "", null),
@@ -40,8 +35,8 @@ class ChallengesPresenter @Inject constructor() :
                 User("", "", "", "", "", null),
                 User("", "", "", "", "", null)
             )),
-            Challenge("title2", "description2", listOf()),
-            Challenge("title3", "description4", listOf(
+            Challenge("title2", "description2", mutableListOf()),
+            Challenge("title3", "description4", mutableListOf(
                 User("", "", "", "", "", null),
                 User("", "", "", "", "", null),
                 User("", "", "", "", "", null),
