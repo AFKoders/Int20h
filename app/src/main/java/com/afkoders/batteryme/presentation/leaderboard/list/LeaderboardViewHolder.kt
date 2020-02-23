@@ -28,8 +28,8 @@ class LeaderboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         }
 
         Glide.with(itemView.context)
-            .load("https://source.unsplash.com/random")
-           // .apply(requestOptions)
+            .load(imageUrl)
+            .apply(requestOptions)
             .into(viewPhoto)
     }
 
