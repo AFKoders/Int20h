@@ -68,7 +68,7 @@ class Quiz3Fragment :
         }
 
         ctaPositive.bindClick {
-            //            findNavController().navigate(R.id.action_quiz2Fragment_to_quiz1Fragment)
+            findNavController().navigate(R.id.action_quiz3Fragment_to_quiz4Fragment)
         }
     }
 

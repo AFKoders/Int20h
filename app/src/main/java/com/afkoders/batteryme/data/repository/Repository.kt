@@ -26,5 +26,7 @@ interface Repository {
 
     fun getAllUsers(block: (users: List<User>) -> Unit)
 
+    fun removeUserFromEvent(user: User, eventId: Long)
 
+    fun removeUserFromChallenge(user: User, challengeId: Long)
 }

@@ -39,6 +39,7 @@ class BatteryFragment :
     override fun onResume() {
         super.onResume()
         presenter.askPercentage()
+        presenter.startTimer()
         val va = ValueAnimator.ofInt(0, presenter.getPercentage())
         val mDuration = 2000L
         va.interpolator = AccelerateDecelerateInterpolator()

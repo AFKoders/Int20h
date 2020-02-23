@@ -13,7 +13,6 @@ class SplashFragment :
 
     override fun redirect() {
         findNavController().navigate(R.id.action_to_login_fragment)
-
     }
 
     override fun showLoading() {
