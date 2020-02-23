@@ -10,6 +10,7 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.MainActivity
+import com.afkoders.batteryme.presentation.MainActivity.Companion.NOTIFICATION_INTENT
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -29,6 +30,8 @@ class BatteryFirebaseMessagingService : FirebaseMessagingService() {
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val mBuilder = NotificationCompat.Builder(applicationContext, DEFAULT_CHANNEL_ID)
         val ii = Intent(applicationContext, MainActivity::class.java)
+            .putExtra(NOTIFICATION_INTENT, true)
+
         val pendingIntent =
             PendingIntent.getActivity(applicationContext, 0, ii, PendingIntent.FLAG_UPDATE_CURRENT)
 

@@ -11,6 +11,7 @@ class AppPrefs constructor(context: Context, private val gson: Gson) {
     companion object {
         private const val HISTORY_PREFS = "history_prefs"
         private const val USER_PREF = "USER_PREF"
+        private const val IS_USERED_PASSED_QUIZ = "isUserPassedQuiz"
     }
 
     private val prefs =
@@ -19,6 +20,14 @@ class AppPrefs constructor(context: Context, private val gson: Gson) {
 
     fun putUser(userAdd: User) {
         user = userAdd
+    }
+
+    fun setUserPassedQuiz(isPassed: Boolean){
+        prefs.edit().putBoolean(IS_USERED_PASSED_QUIZ, isPassed).apply()
+    }
+
+    fun isUserPassedQuiz(): Boolean {
+        return prefs.getBoolean(IS_USERED_PASSED_QUIZ, false)
     }
 
     var user: User

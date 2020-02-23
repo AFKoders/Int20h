@@ -41,4 +41,8 @@ class LoginPresenter @Inject constructor(
         }
         return true
     }
+
+    override fun isUserPassedQuiz(): Boolean {
+        return appPrefs.isUserPassedQuiz()
+    }
 }

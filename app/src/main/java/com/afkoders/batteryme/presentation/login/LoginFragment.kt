@@ -39,6 +39,10 @@ class LoginFragment :
         findNavController().navigate(R.id.action_to_main_fragment)
     }
 
+    private fun navigateToQuiz(){
+        findNavController().navigate(R.id.action_to_quiz)
+    }
+
     private fun signIn() {
         val signInIntent = mGoogleSignInClient.getSignInIntent()
         startActivityForResult(signInIntent, RC_SIGN_IN)
@@ -46,7 +50,12 @@ class LoginFragment :
 
     private fun handleSignInResult(result: GoogleSignInAccount?) {
         updateUserPrefs(result)
-        navigateToMainScreen()
+
+        if(presenter.isUserPassedQuiz()) {
+            navigateToMainScreen()
+        } else {
+            navigateToQuiz()
+        }
     }
 
 
