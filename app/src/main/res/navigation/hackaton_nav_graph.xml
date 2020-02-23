@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/hackaton_nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -45,8 +45,14 @@
             app:popEnterAnim="@anim/enter_from_left"
             app:popExitAnim="@anim/exit_to_right" />
     </fragment>
+
     <fragment
         android:id="@+id/eventDetailsFragment"
         android:name="com.afkoders.batteryme.presentation.create_event.EventDetailsFragment"
         android:label="EventDetailsFragment" />
+
+    <fragment
+        android:id="@+id/quizeFragment"
+        android:name="com.afkoders.batteryme.presentation.quize.PreQuizFragment"
+        android:label="QuizeFragment" />
 </navigation>
