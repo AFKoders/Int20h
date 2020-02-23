@@ -6,11 +6,11 @@ import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.challenges.list.ChallengeRecyclerAdapter
 import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
+import com.afkoders.batteryme.presentation.main.MainFragment
 import com.afkoders.batteryme.utils.extensions.show
 import com.afkoders.batteryme.utils.extensions.widget.makeGone
 import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import kotlinx.android.synthetic.main.fragment_challenges.*
-import kotlinx.android.synthetic.main.fragment_test.*
 import javax.inject.Inject
 
 class ChallengesFragment :
@@ -38,8 +38,12 @@ class ChallengesFragment :
 
         adapter.challengeClickedObservable
             .subscribe {
-                // TODO open details screen
+                (parentFragment as MainFragment).navigateToChallengeDetails(it)
             }.disposeByBagProvider()
+
+        fabNewChallenge.bindClick {
+            // TODO
+        }
     }
 
     override fun onResume() {

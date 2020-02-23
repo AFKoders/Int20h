@@ -1,8 +1,7 @@
-package com.afkoders.batteryme.presentation.create_event
+package com.afkoders.batteryme.presentation.event_details
 
 import com.afkoders.batteryme.presentation.base.BasePresenter
 import com.afkoders.batteryme.presentation.base.BaseView
-import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
 import com.afkoders.batteryme.presentation.events.model.Event
 
 interface EventDetailsAgreement {

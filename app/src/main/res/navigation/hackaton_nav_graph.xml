@@ -44,9 +44,22 @@
             app:launchSingleTop="false"
             app:popEnterAnim="@anim/enter_from_left"
             app:popExitAnim="@anim/exit_to_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_challengeDetailsFragment"
+            app:destination="@id/challengeDetailsFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
     </fragment>
+
     <fragment
         android:id="@+id/eventDetailsFragment"
-        android:name="com.afkoders.batteryme.presentation.create_event.EventDetailsFragment"
+        android:name="com.afkoders.batteryme.presentation.event_details.EventDetailsFragment"
         android:label="EventDetailsFragment" />
+    <fragment
+        android:id="@+id/challengeDetailsFragment"
+        android:name="com.afkoders.batteryme.presentation.challenge_details.ChallengeDetailsFragment"
+        android:label="ChallengeDetailsFragment" />
 </navigation>

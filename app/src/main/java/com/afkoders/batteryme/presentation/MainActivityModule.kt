@@ -6,12 +6,15 @@ import com.afkoders.batteryme.di.scope.FragmentScope
 import com.afkoders.batteryme.presentation.battery.BatteryAgreement
 import com.afkoders.batteryme.presentation.battery.BatteryFragment
 import com.afkoders.batteryme.presentation.battery.BatteryPresenter
+import com.afkoders.batteryme.presentation.challenge_details.ChallengeDetailsAgreement
+import com.afkoders.batteryme.presentation.challenge_details.ChallengeDetailsFragment
+import com.afkoders.batteryme.presentation.challenge_details.ChallengeDetailsPresenter
 import com.afkoders.batteryme.presentation.challenges.ChallengesAgreement
 import com.afkoders.batteryme.presentation.challenges.ChallengesFragment
 import com.afkoders.batteryme.presentation.challenges.ChallengesPresenter
-import com.afkoders.batteryme.presentation.create_event.EventDetailsAgreement
-import com.afkoders.batteryme.presentation.create_event.EventDetailsFragment
-import com.afkoders.batteryme.presentation.create_event.EventDetailsPresenter
+import com.afkoders.batteryme.presentation.event_details.EventDetailsAgreement
+import com.afkoders.batteryme.presentation.event_details.EventDetailsFragment
+import com.afkoders.batteryme.presentation.event_details.EventDetailsPresenter
 import com.afkoders.batteryme.presentation.events.EventsAgreement
 import com.afkoders.batteryme.presentation.events.EventsFragment
 import com.afkoders.batteryme.presentation.events.EventsPresenter
@@ -99,6 +102,13 @@ interface MainActivityModule {
 
     @Binds
     fun eventDetailsFragmentPresenter(eventDetailsFragment: EventDetailsPresenter): EventDetailsAgreement.Presenter
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun challengeDetailFragment(): ChallengeDetailsFragment?
+
+    @Binds
+    fun challengeDetailsFragmentPresenter(challengeDetailsFragment: ChallengeDetailsPresenter): ChallengeDetailsAgreement.Presenter
 
     @ActivityContext
     @Binds

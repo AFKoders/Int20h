@@ -1,4 +1,4 @@
-package com.afkoders.batteryme.presentation.create_event
+package com.afkoders.batteryme.presentation.event_details
 
 import com.afkoders.batteryme.data.prefs.AppPrefs
 import com.afkoders.batteryme.presentation.base.BasePresenterImpl

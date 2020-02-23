@@ -1,4 +1,4 @@
-package com.afkoders.batteryme.presentation.create_event
+package com.afkoders.batteryme.presentation.event_details
 
 import android.widget.FrameLayout
 import android.widget.ImageView
