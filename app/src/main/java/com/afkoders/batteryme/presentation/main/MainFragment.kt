@@ -111,7 +111,7 @@ class MainFragment :
         super.onResume()
         bottomNavigationView.selectedItemId = currentFragmentId
 
-        if(arguments?.getBoolean(PUSH_NOTIFICATION_EXTRA, false) == true) {
+        if (arguments?.getBoolean(PUSH_NOTIFICATION_EXTRA, false) == true) {
             arguments = null
             bottomSheetNotifications.collapse()
         }
