@@ -173,4 +173,8 @@ class MainFragment :
             putSerializable(ChallengeDetailsFragment.CHALLENGE_PARAMETER, challenge)
         }
     }
+
+    fun navigateToSettings(){
+        findNavController().navigateTo(R.id.action_batteryFragment_to_settingsFragment)
+    }
 }
