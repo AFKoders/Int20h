@@ -10,29 +10,29 @@
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        app:inner_coeficient="8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:inner_coeficient="8"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabel"
+        app:percentage="74"
         app:radius="8"
-        app:text_size="32"
-        app:percentage="74" />
+        app:text_size="32" />
 
     <TextView
         android:id="@+id/tvLabel"
         style="@style/TextView.Primary.Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
         android:fontFamily="@font/rubik_bold"
         android:gravity="center"
         android:text="Your power level"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vBattery" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
         android:id="@+id/tvQuizTitle"
@@ -51,7 +51,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/vBattery" />
 
     <TextView
         android:id="@+id/tvQuizMessage"

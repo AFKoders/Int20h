@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hackathon</string>
+    <string name="app_name">BatteryMe</string>
 
     <!-- Actions -->
     <string name="action_cancel">Cancel</string>
