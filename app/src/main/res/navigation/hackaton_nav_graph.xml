@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/hackaton_nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/quizeFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -59,7 +59,7 @@
             app:exitAnim="@anim/exit_to_left"
             app:launchSingleTop="false"
             app:popEnterAnim="@anim/enter_from_left"
-            app:popExitAnim="@anim/exit_to_right"/>
+            app:popExitAnim="@anim/exit_to_right" />
         <action
             android:id="@+id/action_batteryFragment_to_settingsFragment"
             app:destination="@id/logoutFragment"
@@ -73,7 +73,7 @@
     <fragment
         android:id="@+id/logoutFragment"
         android:name="com.afkoders.batteryme.presentation.logout.LogoutFragment"
-        android:label="LogoutFragment" >
+        android:label="LogoutFragment">
         <action
             android:id="@+id/action_logout_to_login_fragment"
             app:destination="@id/loginFragment"
@@ -96,10 +96,50 @@
 
     <fragment
         android:id="@+id/quizeFragment"
-        android:name="com.afkoders.batteryme.presentation.quize.PreQuizFragment"
-        android:label="QuizeFragment" />
+        android:name="com.afkoders.batteryme.presentation.quiz.PreQuizFragment"
+        android:label="QuizeFragment">
+        <action
+            android:id="@+id/action_quizeFragment_to_quiz1Fragment"
+            app:destination="@id/quiz1Fragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/createChallengeFragment"
         android:name="com.afkoders.batteryme.presentation.create_challenge.CreateChallengeFragment"
         android:label="CreateChallengeFragment" />
+
+    <fragment
+        android:id="@+id/quiz1Fragment"
+        android:name="com.afkoders.batteryme.presentation.quiz.q1.Quiz1Fragment"
+        android:label="Quiz1Fragment">
+        <action
+            android:id="@+id/action_quiz1Fragment_to_quizeFragment"
+            app:destination="@id/quizeFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_quiz1Fragment_to_quiz2Fragment"
+            app:destination="@id/quiz2Fragment"
+            app:launchSingleTop="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quiz2Fragment"
+        android:name="com.afkoders.batteryme.presentation.quiz.q2.Quiz2Fragment"
+        android:label="Quiz2Fragment">
+        <action
+            android:id="@+id/action_quiz2Fragment_to_quiz1Fragment"
+            app:destination="@id/quiz1Fragment" />
+        <action
+            android:id="@+id/action_quiz2Fragment_to_quiz3Fragment"
+            app:destination="@id/quiz3Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quiz3Fragment"
+        android:name="com.afkoders.batteryme.presentation.quiz.q3.Quiz3Fragment"
+        android:label="Quiz3Fragment">
+        <action
+            android:id="@+id/action_quiz3Fragment_to_quiz2Fragment"
+            app:destination="@id/quiz2Fragment" />
+    </fragment>
 </navigation>
