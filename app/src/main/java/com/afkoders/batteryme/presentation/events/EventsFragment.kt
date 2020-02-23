@@ -6,6 +6,7 @@ import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
 import com.afkoders.batteryme.presentation.events.list.EventsRecyclerAdapter
+import com.afkoders.batteryme.presentation.main.MainFragment
 import com.afkoders.batteryme.utils.extensions.show
 import com.afkoders.batteryme.utils.extensions.widget.makeGone
 import com.afkoders.batteryme.utils.extensions.widget.makeVisible
@@ -38,8 +39,12 @@ class EventsFragment :
 
         adapter.eventClickedObservable
             .subscribe {
-                // TODO open details screen
+                (parentFragment as MainFragment).navigateToEventDetailsFragment(it)
             }.disposeByBagProvider()
+
+        fabNewEvent.bindClick {
+            // TODO
+        }
 
     }
 

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#00C48C</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#00C48C</color>
 
     <color name="white">#ffffff</color>
 
@@ -35,5 +35,9 @@
     <color name="battery_70">#FFCF5C</color>
     <color name="battery_50">#F2994A</color>
     <color name="battery_20">#FF647C</color>
+
+    <color name="redButton">#FF647C</color>
+    <color name="mdtp_accent_color">@color/colorPrimary</color>
+    <color name="mdtp_accent_color_dark">@color/colorPrimaryDark</color>
 
 </resources>

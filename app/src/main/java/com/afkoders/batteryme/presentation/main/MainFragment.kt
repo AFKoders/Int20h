@@ -1,14 +1,22 @@
 package com.afkoders.batteryme.presentation.main
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
+import com.afkoders.batteryme.presentation.challenge_details.ChallengeDetailsAgreement
+import com.afkoders.batteryme.presentation.challenge_details.ChallengeDetailsFragment
+import com.afkoders.batteryme.presentation.challenges.model.Challenge
+import com.afkoders.batteryme.presentation.event_details.EventDetailsFragment
+import com.afkoders.batteryme.presentation.events.model.Event
 import com.afkoders.batteryme.utils.extensions.collapse
 import com.afkoders.batteryme.utils.extensions.dpToPx
 import com.afkoders.batteryme.utils.extensions.hide
+import com.afkoders.batteryme.utils.extensions.navigateTo
 import com.afkoders.batteryme.utils.extensions.widget.makeGone
 import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -20,7 +28,7 @@ class MainFragment :
     MainFragmentAgreement.View {
 
     private lateinit var bottomSheetNotifications: BottomSheetBehavior<View>
-    private lateinit var currentFragment: Fragment
+    private var currentFragmentId: Int = R.id.menuItemBattery
 
     private val cornerRadius by lazy { 16.dpToPx(requireContext()) }
     private val elevation by lazy { 8.dpToPx(requireContext()) }
@@ -42,6 +50,7 @@ class MainFragment :
             menu.findItem(R.id.menuItemLeaderboard).icon =
                 AppCompatResources.getDrawable(requireContext(), R.drawable.ic_leaderboard)
 
+            currentFragmentId = it.itemId
             when (it.itemId) {
                 R.id.menuItemBattery -> {
                     sectionBattery.makeVisible()
@@ -139,6 +148,11 @@ class MainFragment :
         // Empty
     }
 
+    override fun onResume() {
+        super.onResume()
+        bottomNavigationView.selectedItemId = currentFragmentId
+    }
+
     override fun returnThisHerePlease(): MainFragmentAgreement.View = this
 
     private fun setTextsForNotifications(title: String, message: String) {
@@ -146,5 +160,17 @@ class MainFragment :
         tvNotificationMessage.text = message
         ivLine.alpha = 0.8f
         ivClose.alpha = 0f
+    }
+
+    fun navigateToEventDetailsFragment(event: Event) {
+        findNavController().navigateTo(R.id.action_mainFragment_to_eventDetailsFragment) {
+            putSerializable(EventDetailsFragment.EVENT_PARAMETER, event)
+        }
+    }
+
+    fun navigateToChallengeDetails(challenge: Challenge) {
+        findNavController().navigateTo(R.id.action_mainFragment_to_challengeDetailsFragment) {
+            putSerializable(ChallengeDetailsFragment.CHALLENGE_PARAMETER, challenge)
+        }
     }
 }
