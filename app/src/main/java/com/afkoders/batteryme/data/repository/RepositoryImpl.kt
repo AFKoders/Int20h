@@ -64,7 +64,7 @@ class RepositoryImpl @Inject constructor(
     }
 
     override fun addUserToEvent(user: User, eventId: Long) {
-        database.child("Event").child(eventId.toString()).child("Users").child(user.id)
+        database.child("Events").child(eventId.toString()).child("Users").child(user.id)
             .setValue(user)
     }
 
