@@ -1,19 +1,19 @@
 package com.afkoders.batteryme.presentation.battery
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.fragment.findNavController
-import com.afkoders.batteryme.R
+import android.view.animation.AccelerateDecelerateInterpolator
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.dialogs.ConfirmationDialog
 import com.afkoders.batteryme.presentation.main.MainFragment
 import com.afkoders.batteryme.utils.extensions.dpToPx
-import com.afkoders.batteryme.utils.extensions.navigateTo
 import kotlinx.android.synthetic.main.fragment_battery.*
 import kotlinx.android.synthetic.main.item_leaderboard.*
 
+
 class BatteryFragment :
-    BaseFragmentImpl<BatteryAgreement.Presenter, BatteryAgreement.View>(R.layout.fragment_battery),
+    BaseFragmentImpl<BatteryAgreement.Presenter, BatteryAgreement.View>(com.afkoders.batteryme.R.layout.fragment_battery),
     BatteryAgreement.View {
 
     override fun setupInputs() {
@@ -39,8 +39,16 @@ class BatteryFragment :
     override fun onResume() {
         super.onResume()
         presenter.askPercentage()
-
+        val va = ValueAnimator.ofInt(0, presenter.getPercentage())
+        val mDuration = 2000L
+        va.interpolator = AccelerateDecelerateInterpolator()
+        va.duration = mDuration
+        va.addUpdateListener { animation ->
+            vBattery.update(animation.animatedValue as Int)
+        }
+        va.start()
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vBattery.innerCoeficient = 8.dpToPx(requireContext()).toFloat()

@@ -16,4 +16,8 @@ class BatteryPresenter @Inject constructor(
     override fun askPercentage() {
         view?.setPercentage(appPrefs.user.score)
     }
+
+    override fun getPercentage(): Int {
+        return appPrefs.user.score
+    }
 }

@@ -10,5 +10,6 @@ interface BatteryAgreement {
 
     interface Presenter : BasePresenter<View> {
        fun askPercentage()
+        fun getPercentage(): Int
     }
 }
