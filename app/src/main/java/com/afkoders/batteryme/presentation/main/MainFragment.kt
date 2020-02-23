@@ -173,4 +173,8 @@ class MainFragment :
             putSerializable(ChallengeDetailsFragment.CHALLENGE_PARAMETER, challenge)
         }
     }
+
+    fun navigateToChallengeCreation() {
+        findNavController().navigateTo(R.id.action_mainFragment_to_createChallengeFragment)
+    }
 }
