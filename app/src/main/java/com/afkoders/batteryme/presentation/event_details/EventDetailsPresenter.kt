@@ -15,7 +15,7 @@ class EventDetailsPresenter @Inject constructor(private val appPrefs: AppPrefs,
     }
 
     override fun leaveFromEvent() {
-        // TODO
+        repository.removeUserFromEvent(appPrefs.user, model!!.id)
     }
 
     override fun setModel(event: Event) {

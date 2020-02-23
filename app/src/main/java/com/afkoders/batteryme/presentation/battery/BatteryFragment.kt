@@ -45,7 +45,9 @@ class BatteryFragment :
         va.interpolator = AccelerateDecelerateInterpolator()
         va.duration = mDuration
         va.addUpdateListener { animation ->
-            vBattery.update(animation.animatedValue as Int)
+            if (vBattery != null) {
+                vBattery.update(animation.animatedValue as Int)
+            }
         }
         va.start()
     }

@@ -120,6 +120,7 @@
                     android:layout_height="wrap_content"
                     android:focusableInTouchMode="true"
                     android:fontFamily="@font/rubik_regular"
+                    android:gravity="top|start"
                     android:hint="Write a description"
                     android:imeOptions="actionNext"
                     android:inputType="text|textMultiLine"

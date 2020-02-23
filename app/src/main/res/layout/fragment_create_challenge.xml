@@ -115,6 +115,7 @@
             android:fontFamily="@font/rubik_regular"
             android:hint="Write a description"
             android:imeOptions="actionNext"
+            android:gravity="top|start"
             android:inputType="text|textMultiLine"
             android:minHeight="64dp"
             android:lines="5"

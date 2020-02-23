@@ -15,7 +15,7 @@ class ChallengeDetailsPresenter @Inject constructor(private val appPrefs: AppPre
     }
 
     override fun leaveFromChallenge() {
-        // TODO
+        repository.removeUserFromChallenge(appPrefs.user, model!!.id)
     }
 
     override fun setModel(challenge: Challenge) {
