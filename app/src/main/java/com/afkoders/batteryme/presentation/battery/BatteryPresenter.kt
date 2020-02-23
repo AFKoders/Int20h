@@ -24,11 +24,11 @@ class BatteryPresenter @Inject constructor(
 
     override fun startTimer() {
         var user: User? = null
-        Observable.interval(5, TimeUnit.SECONDS, Schedulers.computation())
+        Observable.interval(15, TimeUnit.SECONDS, Schedulers.computation())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ tick ->
-               var user =  appPrefs.user
-                if(user.score > 10) {
+                var user = appPrefs.user
+                if (user.score > 10) {
                     user.score = user.score - 1
                     repository.addUserRemote(user)
                     appPrefs.user = user
