@@ -8,6 +8,51 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:648071190403:android:3791a980659ccc5cfcc8b6",
+        "android_client_info": {
+          "package_name": "com.afkoders.batteryme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648071190403-csvsks03fdj6l8puap877r33h8uvn1td.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.afkoders.batteryme",
+            "certificate_hash": "731447ea4055ae0e59dd71aa984f900d7b521e15"
+          }
+        },
+        {
+          "client_id": "648071190403-9nhpd0jnbj6sotiofepld83eg0mml8vb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.afkoders.batteryme",
+            "certificate_hash": "d89cc9ba3aaf5b02284bd0d9cf363ebd7d64d97c"
+          }
+        },
+        {
+          "client_id": "648071190403-7pnnkj9luqm026kb1623hjn3qsk2jhno.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOZ2oJNQ-EiDFyg2HI89QPYCDzZTMeEUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648071190403-cpv95jtb5am9fmjgolc2c3pqd08s2aki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:648071190403:android:e9b6e7e4c157bf8cfcc8b6",
         "android_client_info": {
           "package_name": "com.afkoders.hackathon"
@@ -15,7 +60,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "648071190403-i1bi3i60vdj6djicbk89ru8mrbr04dng.apps.googleusercontent.com",
+          "client_id": "648071190403-etoqfpk93vbofp2j07rdlrgaanp5tqlr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.afkoders.hackathon",
+            "certificate_hash": "731447ea4055ae0e59dd71aa984f900d7b521e15"
+          }
+        },
+        {
+          "client_id": "648071190403-v5a62abmgeum60qa4b34t0qqaivhfgk5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.afkoders.hackathon",

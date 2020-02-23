@@ -22,7 +22,7 @@ class LoginFragment :
             .build()
 
         mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
-
+        mGoogleSignInClient.signOut()
         val account = GoogleSignIn.getLastSignedInAccount(requireActivity())
         updateUserPrefs(account)
 
