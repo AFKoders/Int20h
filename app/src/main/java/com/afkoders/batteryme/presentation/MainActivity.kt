@@ -16,6 +16,7 @@ class MainActivity : DaggerAppCompatActivity() {
             statusBarColor = Color.TRANSPARENT
         }*/
 
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }

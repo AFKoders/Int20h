@@ -10,5 +10,5 @@ data class User(
     val email: String = "",
     val id: String = "",
     val photo: String = "",
-    val score: Int = 0
+    var score: Int = 0
 ): Serializable

@@ -10,5 +10,7 @@ interface BatteryAgreement {
 
     interface Presenter : BasePresenter<View> {
        fun askPercentage()
+
+        fun startTimer()
     }
 }

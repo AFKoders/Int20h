@@ -39,6 +39,7 @@ class BatteryFragment :
     override fun onResume() {
         super.onResume()
         presenter.askPercentage()
+        presenter.startTimer()
 
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

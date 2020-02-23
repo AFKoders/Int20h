@@ -149,7 +149,13 @@ class RepositoryImpl @Inject constructor(
         })
     }
 
+    override fun removeUserFromChallenge(user: User, challengeId: Long) {
+        database.child("Challenges").child(challengeId.toString()).child("Users").child(user.id)
+            .removeValue()    }
 
+    override fun removeUserFromEvent(user: User, eventId: Long) {
+        database.child("Events").child(eventId.toString()).child("Users").child(user.id)
+            .removeValue()    }
     /*override fun findSongByTitle(fullTitle: String): Single<DeezerSong> {
         return apiService.findByArtistAndTrack(fullTitle)
             .map {
