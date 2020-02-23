@@ -94,7 +94,7 @@ class MainFragment :
 
         bottomSheetNotifications = BottomSheetBehavior.from(bsNotifications)
         bottomSheetNotifications.addBottomSheetCallback(getBottomSheetCallback())
-        bottomSheetNotifications.collapse()
+        bottomSheetNotifications.hide()
         setTextsForNotifications(
             title = "It’s time to shake your body!",
             message = "Don’t hesitate to take some time off if it means you’ll be a better worker."
@@ -115,6 +115,7 @@ class MainFragment :
             // TODO: handle submit
         }
     }
+
 
     private fun getBottomSheetCallback(): BottomSheetBehavior.BottomSheetCallback {
         return object : BottomSheetBehavior.BottomSheetCallback() {
@@ -151,6 +152,11 @@ class MainFragment :
     override fun onResume() {
         super.onResume()
         bottomNavigationView.selectedItemId = currentFragmentId
+
+        if(arguments?.getBoolean(PUSH_NOTIFICATION_EXTRA, false) == true) {
+            arguments = null
+            bottomSheetNotifications.collapse()
+        }
     }
 
     override fun returnThisHerePlease(): MainFragmentAgreement.View = this
@@ -186,5 +192,7 @@ class MainFragment :
         findNavController().navigateTo(R.id.action_mainFragment_to_createEventFragment)
     }
 
-
+    companion object {
+        const val PUSH_NOTIFICATION_EXTRA = "pushNotification.EXTRA"
+    }
 }

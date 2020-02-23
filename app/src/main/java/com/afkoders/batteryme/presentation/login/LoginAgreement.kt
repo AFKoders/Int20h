@@ -11,5 +11,6 @@ interface LoginAgreement {
 
     interface Presenter: BasePresenter<View> {
         fun saveUserToPrefs(user: User): Boolean
+        fun isUserPassedQuiz(): Boolean
     }
 }

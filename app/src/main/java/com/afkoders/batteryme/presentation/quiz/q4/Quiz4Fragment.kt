@@ -38,7 +38,7 @@ class Quiz4Fragment :
         tvQuizTitle.text = spannableText
 
         ctaNegative.bindClick {
-            findNavController().navigate(R.id.action_quiz4Fragment_to_quiz3Fragment)
+            findNavController().navigate(R.id.action_quiz4Fragment_to_quiz5Fragment)
         }
 
         ctaPositive.bindClick {

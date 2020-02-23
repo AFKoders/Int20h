@@ -13,7 +13,8 @@ class QuizFinishPresenter @Inject constructor(private val appPrefs: AppPrefs) :
         Observable.just(Any())
             .delay(1, TimeUnit.SECONDS)
             .subscribe {
+                appPrefs.setUserPassedQuiz(true)
                 view?.redirect()
-            }
+            }.disposeByBagProvider()
     }
 }
