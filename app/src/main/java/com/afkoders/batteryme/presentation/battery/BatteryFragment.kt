@@ -1,8 +1,12 @@
 package com.afkoders.batteryme.presentation.battery
 
+import android.os.Bundle
+import android.view.View
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.dialogs.ConfirmationDialog
+import com.afkoders.batteryme.utils.extensions.dpToPx
+import kotlinx.android.synthetic.main.fragment_battery.*
 
 class BatteryFragment :
     BaseFragmentImpl<BatteryAgreement.Presenter, BatteryAgreement.View>(R.layout.fragment_battery),
@@ -17,6 +21,12 @@ class BatteryFragment :
             actionPositiveText = "Deal with it"
             actionNegativeText = "Dismiss"
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        vBattery.innerCoeficient = 8.dpToPx(requireContext()).toFloat()
+
     }
 
     override fun showLoading() {
