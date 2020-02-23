@@ -9,6 +9,6 @@ data class User(
     val familyName: String = "",
     val email: String = "",
     val id: String = "",
-    val photo: Uri? = null,
+    val photo: String = "",
     val score: Int = 0
 ): Serializable

@@ -26,7 +26,7 @@ class AppPrefs constructor(context: Context, private val gson: Gson) {
         get() = gson.fromJson(
             prefs.getString(USER_PREF, ""),
             object : TypeToken<User>() {}.type
-        ) ?: User("", "", "", "", "", null, 0)
+        ) ?: User("", "", "", "", "", "", 0)
 
     /*fun addToHistory(track: History) {
         val newList = history

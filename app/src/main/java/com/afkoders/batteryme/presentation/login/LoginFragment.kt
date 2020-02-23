@@ -57,7 +57,7 @@ class LoginFragment :
             account?.familyName ?: "",
             account?.email ?: "",
             account?.id ?: "",
-            account?.photoUrl,
+            account?.photoUrl?.normalizeScheme().toString(),
             99
         )
         presenter.saveUserToPrefs(user)
