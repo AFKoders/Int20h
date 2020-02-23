@@ -8,6 +8,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.common.models.User
 import com.afkoders.batteryme.presentation.events.model.Event
 import com.afkoders.batteryme.utils.extensions.format
@@ -46,10 +47,12 @@ class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindUsers(users: List<User>) {
         if(users.isNotEmpty()) {
-            Glide.with(itemView.context).load(users.get(0).photo).into(ivEventUpper)
+            Glide.with(itemView.context).load(users.get(0).photo)
+                .placeholder(R.drawable.ic_placeholder_users).into(ivEventUpper)
         }
         if(users.size > 1) {
-            Glide.with(itemView.context).load(users.get(1).photo).into(ivEventBottom)
+            Glide.with(itemView.context).load(users.get(1).photo)
+                .placeholder(R.drawable.ic_placeholder_users).into(ivEventBottom)
         }
         if(users.size > 3){
             ivEventBottom.visibility = View.GONE
