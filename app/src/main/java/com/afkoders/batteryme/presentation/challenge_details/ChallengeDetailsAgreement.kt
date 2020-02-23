@@ -9,7 +9,7 @@ interface ChallengeDetailsAgreement {
         fun showData(challenge: Challenge)
         fun joinedToChallenge()
         fun leavedFromChallenge()
-        fun initButton(isHisChallenge: Boolean, isJoined: Boolean)
+        fun initButton(isJoined: Boolean)
     }
 
     interface Presenter : BasePresenter<View> {

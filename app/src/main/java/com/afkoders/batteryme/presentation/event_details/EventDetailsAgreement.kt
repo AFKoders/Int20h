@@ -9,7 +9,7 @@ interface EventDetailsAgreement {
         fun showData(event: Event)
         fun joinedToEvent()
         fun leavedFromEvent()
-        fun initButton(isHisEvent: Boolean, isJoined: Boolean)
+        fun initButton(isJoined: Boolean)
     }
 
     interface Presenter: BasePresenter<View> {

@@ -52,7 +52,8 @@ class ChallengeDetailsFragment :
                     FrameLayout.LayoutParams.MATCH_PARENT
                 )
             }
-            Glide.with(requireContext()).load(it.photo).placeholder(R.drawable.ic_placeholder_users).into(ivUser)
+            Glide.with(requireContext()).load(it.photo).placeholder(R.drawable.ic_placeholder_users)
+                .into(ivUser)
 
             flUser.addView(ivUser)
             llUsers.addView(flUser)
@@ -83,16 +84,12 @@ class ChallengeDetailsFragment :
         finish()
     }
 
-    override fun initButton(isHisChallenge: Boolean, isJoined: Boolean) {
-        if(isHisChallenge){
-            btnJoinLeaveChallenge.makeGone()
+    override fun initButton(isJoined: Boolean) {
+        btnJoinLeaveChallenge.makeVisible()
+        if (isJoined) {
+            joinedToChallenge()
         } else {
-            btnJoinLeaveChallenge.makeVisible()
-            if (isJoined) {
-                joinedToChallenge()
-            } else {
-                leavedFromChallenge()
-            }
+            leavedFromChallenge()
         }
     }
 

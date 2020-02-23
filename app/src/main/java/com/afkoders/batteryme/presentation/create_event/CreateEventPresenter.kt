@@ -13,7 +13,7 @@ class CreateEventPresenter @Inject constructor(private val appPrefs: AppPrefs,
     CreateEventAgreement.Presenter {
 
     override fun createEvent(title: String, description: String, location: String, date: Date) {
-        repository.addEventRemote(Event(title, description, date, location, mutableListOf()))
+        repository.addEventRemote(Event(title, description, date, location, mutableListOf(appPrefs.user)))
         view?.eventCreated()
     }
 }

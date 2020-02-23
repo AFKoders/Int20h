@@ -54,17 +54,15 @@ class EventDetailsFragment :
         finish()
     }
 
-    override fun initButton(isHisEvent: Boolean, isJoined: Boolean) {
-        if(isHisEvent){
-            btnJoinLeaveEvent.makeGone()
-        } else {
+    override fun initButton(isJoined: Boolean) {
+
             btnJoinLeaveEvent.makeVisible()
             if (isJoined) {
                 joinedToEvent()
             } else {
                 leavedFromEvent()
             }
-        }
+
     }
 
     override fun returnThisHerePlease(): EventDetailsAgreement.View = this

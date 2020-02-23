@@ -20,7 +20,7 @@ class ChallengeDetailsPresenter @Inject constructor(private val appPrefs: AppPre
 
     override fun setModel(challenge: Challenge) {
         model = challenge
-        view?.initButton(challenge.users.isEmpty() || !challenge.users.contains(appPrefs.user), challenge.users.contains(appPrefs.user))
+        view?.initButton(challenge.users.contains(appPrefs.user))
         view?.showData(challenge)
     }
 }
