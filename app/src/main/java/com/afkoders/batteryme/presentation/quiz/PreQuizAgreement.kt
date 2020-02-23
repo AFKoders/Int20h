@@ -1,4 +1,4 @@
-package com.afkoders.batteryme.presentation.quize
+package com.afkoders.batteryme.presentation.quiz
 
 import com.afkoders.batteryme.presentation.base.BasePresenter
 import com.afkoders.batteryme.presentation.base.BaseView
