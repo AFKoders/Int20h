@@ -9,8 +9,9 @@ import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.events.model.Event
 import com.afkoders.batteryme.utils.extensions.*
+import com.afkoders.batteryme.utils.extensions.widget.makeGone
+import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.fragment_challenge_details.*
 import kotlinx.android.synthetic.main.fragment_event_details.*
 import kotlinx.android.synthetic.main.fragment_event_details.ivBack
 import kotlinx.android.synthetic.main.fragment_event_details.llUsers
@@ -38,6 +39,7 @@ class EventDetailsFragment :
         )
         btnJoinLeaveEvent.text = "Leave the event"
         btnJoinLeaveEvent.bindClick { presenter.leaveFromEvent() }
+        finish()
     }
 
     override fun leavedFromEvent() {
@@ -49,13 +51,19 @@ class EventDetailsFragment :
         )
         btnJoinLeaveEvent.text = "Join the event"
         btnJoinLeaveEvent.bindClick { presenter.joinToEvent() }
+        finish()
     }
 
-    override fun initButton(isJoined: Boolean) {
-        if(isJoined){
-            joinedToEvent()
+    override fun initButton(isHisEvent: Boolean, isJoined: Boolean) {
+        if(isHisEvent){
+            btnJoinLeaveEvent.makeGone()
         } else {
-            leavedFromEvent()
+            btnJoinLeaveEvent.makeVisible()
+            if (isJoined) {
+                joinedToEvent()
+            } else {
+                leavedFromEvent()
+            }
         }
     }
 
