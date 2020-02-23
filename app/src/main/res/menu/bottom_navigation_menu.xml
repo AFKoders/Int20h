@@ -4,25 +4,25 @@
     <item
         android:id="@+id/menuItemBattery"
         android:enabled="true"
-        android:icon="@drawable/ic_battery_selected"
+        android:icon="@drawable/battery_navigation_selector"
         android:title="Battery"
         app:showAsAction="always" />
     <item
         android:id="@+id/menuItemChallenges"
         android:enabled="true"
-        android:icon="@drawable/ic_challenges"
+        android:icon="@drawable/challenges_navigation_selector"
         android:title="Challenges"
         app:showAsAction="always" />
     <item
         android:id="@+id/menuItemEvents"
         android:enabled="true"
-        android:icon="@drawable/ic_events"
+        android:icon="@drawable/events_navigation_selector"
         android:title="Events"
         app:showAsAction="always" />
     <item
         android:id="@+id/menuItemLeaderboard"
         android:enabled="true"
-        android:icon="@drawable/ic_leaderboard"
+        android:icon="@drawable/leaderboard_navigation_selector"
         android:title="Chargeboard"
         app:showAsAction="always" />
 </menu>

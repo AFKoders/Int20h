@@ -1,14 +1,10 @@
 package com.afkoders.batteryme.presentation.main
 
 import android.annotation.SuppressLint
-import android.os.Bundle
 import android.view.View
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
-import com.afkoders.batteryme.presentation.challenge_details.ChallengeDetailsAgreement
 import com.afkoders.batteryme.presentation.challenge_details.ChallengeDetailsFragment
 import com.afkoders.batteryme.presentation.challenges.model.Challenge
 import com.afkoders.batteryme.presentation.event_details.EventDetailsFragment
@@ -40,53 +36,15 @@ class MainFragment :
             sectionEvents.makeGone()
             sectionLeaderboard.makeGone()
 
-            val menu = bottomNavigationView.menu
-            menu.findItem(R.id.menuItemBattery).icon =
-                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_battery)
-            menu.findItem(R.id.menuItemEvents).icon =
-                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_events)
-            menu.findItem(R.id.menuItemChallenges).icon =
-                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_challenges)
-            menu.findItem(R.id.menuItemLeaderboard).icon =
-                AppCompatResources.getDrawable(requireContext(), R.drawable.ic_leaderboard)
+            bottomNavigationView.itemIconTintList = null
 
             currentFragmentId = it.itemId
             when (it.itemId) {
-                R.id.menuItemBattery -> {
-                    sectionBattery.makeVisible()
-                    it.icon = AppCompatResources.getDrawable(
-                        requireContext(),
-                        R.drawable.ic_battery_selected
-                    )
-                }
-                R.id.menuItemChallenges -> {
-                    sectionChallenges.makeVisible()
-                    it.icon = AppCompatResources.getDrawable(
-                        requireContext(),
-                        R.drawable.ic_challenges_selected
-                    )
-                }
-                R.id.menuItemEvents -> {
-                    sectionEvents.makeVisible()
-                    it.icon = AppCompatResources.getDrawable(
-                        requireContext(),
-                        R.drawable.ic_events_selected
-                    )
-                }
-                R.id.menuItemLeaderboard -> {
-                    sectionLeaderboard.makeVisible()
-                    it.icon = AppCompatResources.getDrawable(
-                        requireContext(),
-                        R.drawable.ic_leaderboard_selected
-                    )
-                }
-                else -> {
-                    sectionBattery.makeVisible()
-                    it.icon = AppCompatResources.getDrawable(
-                        requireContext(),
-                        R.drawable.ic_battery_selected
-                    )
-                }
+                R.id.menuItemBattery -> sectionBattery.makeVisible()
+                R.id.menuItemChallenges -> sectionChallenges.makeVisible()
+                R.id.menuItemEvents -> sectionEvents.makeVisible()
+                R.id.menuItemLeaderboard -> sectionLeaderboard.makeVisible()
+                else -> sectionBattery.makeVisible()
             }
 
             true
@@ -184,7 +142,7 @@ class MainFragment :
         findNavController().navigateTo(R.id.action_mainFragment_to_createChallengeFragment)
     }
 
-    fun navigateToSettings(){
+    fun navigateToSettings() {
         findNavController().navigateTo(R.id.action_batteryFragment_to_settingsFragment)
     }
 
