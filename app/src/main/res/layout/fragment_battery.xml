@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/vBattery" />
 
     <TextView
-        android:id="@+id/tvBatteryTitle"
+        android:id="@+id/tvQuizTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
 
     <TextView
-        android:id="@+id/tvBatteryMessage"
+        android:id="@+id/tvQuizMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -66,9 +66,9 @@
         android:textAlignment="center"
         android:textColor="@color/secondaryTextColor"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvBatteryTitle"
-        app:layout_constraintStart_toStartOf="@+id/tvBatteryTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvBatteryTitle" />
+        app:layout_constraintEnd_toEndOf="@+id/tvQuizTitle"
+        app:layout_constraintStart_toStartOf="@+id/tvQuizTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuizTitle" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

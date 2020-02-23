@@ -21,15 +21,18 @@ import com.afkoders.batteryme.presentation.events.EventsPresenter
 import com.afkoders.batteryme.presentation.leaderboard.LeaderboardAgreement
 import com.afkoders.batteryme.presentation.leaderboard.LeaderboardFragment
 import com.afkoders.batteryme.presentation.leaderboard.LeaderboardPresenter
-import com.afkoders.batteryme.presentation.main.MainFragment
-import com.afkoders.batteryme.presentation.main.MainFragmentAgreement
-import com.afkoders.batteryme.presentation.main.MainFragmentPresenter
 import com.afkoders.batteryme.presentation.login.LoginAgreement
 import com.afkoders.batteryme.presentation.login.LoginFragment
 import com.afkoders.batteryme.presentation.login.LoginPresenter
 import com.afkoders.batteryme.presentation.splash.SplashAgreement
 import com.afkoders.batteryme.presentation.splash.SplashFragment
 import com.afkoders.batteryme.presentation.splash.SplashPresenter
+import com.afkoders.batteryme.presentation.main.MainFragment
+import com.afkoders.batteryme.presentation.main.MainFragmentAgreement
+import com.afkoders.batteryme.presentation.main.MainFragmentPresenter
+import com.afkoders.batteryme.presentation.quize.PreQuizAgreement
+import com.afkoders.batteryme.presentation.quize.PreQuizFragment
+import com.afkoders.batteryme.presentation.quize.PreQuizPresenter
 import com.afkoders.batteryme.presentation.test.TestAgreement
 import com.afkoders.batteryme.presentation.test.TestFragment
 import com.afkoders.batteryme.presentation.test.TestPresenter
@@ -48,6 +51,10 @@ interface MainActivityModule {
     @ContributesAndroidInjector
     fun loginFragment(): LoginFragment?
 
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun quizeFragment(): PreQuizFragment?
+
     @Binds
     fun testPresenter(testPresenter: TestPresenter): TestAgreement.Presenter
 
@@ -60,6 +67,9 @@ interface MainActivityModule {
 
     @Binds
     fun loginPresenter(loginPresenter: LoginPresenter): LoginAgreement.Presenter
+
+    @Binds
+    fun quizePresenter(loginPresenter: PreQuizPresenter): PreQuizAgreement.Presenter
 
     @FragmentScope
     @ContributesAndroidInjector

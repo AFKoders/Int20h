@@ -62,4 +62,9 @@
         android:id="@+id/challengeDetailsFragment"
         android:name="com.afkoders.batteryme.presentation.challenge_details.ChallengeDetailsFragment"
         android:label="ChallengeDetailsFragment" />
+
+    <fragment
+        android:id="@+id/quizeFragment"
+        android:name="com.afkoders.batteryme.presentation.quize.PreQuizFragment"
+        android:label="QuizeFragment" />
 </navigation>

@@ -18,7 +18,8 @@ repositories {
     google()
 }
 
-def CONFIG = { k -> "\"${project.properties.get(k)}\"" }\
+def CONFIG = { k -> "\"${project.properties.get(k)}\"" }
+\
 
 android {
     compileSdkVersion 29
@@ -125,6 +126,10 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
     debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
     releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+    implementation ('com.wdullaer:materialdatetimepicker:4.2.3') {
+        exclude group: 'androidx.appcompat'
+        exclude group: 'androidx.recyclerview'
+    }
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.2.1"
