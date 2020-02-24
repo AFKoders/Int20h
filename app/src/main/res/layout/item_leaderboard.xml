@@ -42,6 +42,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ivPhoto"
         app:shapeRadius="6"
-        app:scale="2" />
+        app:scale="2.1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
