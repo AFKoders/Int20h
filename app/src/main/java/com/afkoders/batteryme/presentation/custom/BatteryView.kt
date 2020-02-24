@@ -40,8 +40,6 @@ class BatteryView @JvmOverloads constructor(
         typeface = ResourcesCompat.getFont(context, R.font.rubik_bold)
     }
 
-    private val clipTextRect = RectF()
-
     private val greenColor = ContextCompat.getColor(context, R.color.battery_90)
     private val yellowColor = ContextCompat.getColor(context, R.color.battery_70)
     private val orangeColor = ContextCompat.getColor(context, R.color.battery_50)
