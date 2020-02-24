@@ -11,7 +11,6 @@ class LeaderboardPresenter @Inject constructor(private val repository: Repositor
     BasePresenterImpl<List<AdapterDelegateItem>, LeaderboardAgreement.View>(),
     LeaderboardAgreement.Presenter {
     override fun uploadData() {
-        // TODO fetch data from firebase
         repository.getAllUsers { users ->
             view?.populateData(listOf(HeaderItem("Chargeboard")).plus(users.map {
                 LeaderboardModel(
