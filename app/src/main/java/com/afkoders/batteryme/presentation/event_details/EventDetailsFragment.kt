@@ -9,7 +9,6 @@ import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.events.model.Event
 import com.afkoders.batteryme.utils.extensions.*
-import com.afkoders.batteryme.utils.extensions.widget.makeGone
 import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_event_details.*
@@ -84,10 +83,10 @@ class EventDetailsFragment :
         event.users.forEach {
             val flUser = FrameLayout(requireContext()).apply {
                 layoutParams = LinearLayout.LayoutParams(
-                    48.dpToPx(requireContext()),
-                    48.dpToPx(requireContext())
+                    48.dp(requireContext()),
+                    48.dp(requireContext())
                 ).apply {
-                    marginStart = (-16).dpToPx(requireContext())
+                    marginStart = (-16).dp(requireContext())
                 }
                 background =
                     AppCompatResources.getDrawable(requireContext(), R.drawable.background_user)

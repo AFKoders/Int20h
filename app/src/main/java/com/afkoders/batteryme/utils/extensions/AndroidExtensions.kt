@@ -9,10 +9,6 @@ import android.os.Build
 import android.widget.Toast
 
 
-fun Int.dpToPx(context: Context): Int = (this * context.resources.displayMetrics.density).toInt()
-
-fun Int.spToPx(): Int = (this * Resources.getSystem().displayMetrics.scaledDensity).toInt()
-
 fun Context.isNetworkConnected(): Boolean {
     val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
 

@@ -30,26 +30,17 @@
         app:layout_constraintStart_toEndOf="@+id/ivPhoto"
         app:layout_constraintTop_toTopOf="@+id/ivPhoto" />
 
-    <!--<FrameLayout
-        android:id="@+id/flBatteryView"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">-->
-
-    <com.afkoders.batteryme.presentation.custom.BatteryMini
+    <com.afkoders.batteryme.presentation.custom.BatteryView
         android:id="@+id/batteryView"
         android:layout_width="100dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:layout_gravity="center"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivPhoto" />
-    <!--</FrameLayout>-->
+        app:layout_constraintTop_toTopOf="@+id/ivPhoto"
+        app:radius="6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

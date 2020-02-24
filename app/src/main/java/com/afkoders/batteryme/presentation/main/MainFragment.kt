@@ -10,7 +10,7 @@ import com.afkoders.batteryme.presentation.challenges.model.Challenge
 import com.afkoders.batteryme.presentation.event_details.EventDetailsFragment
 import com.afkoders.batteryme.presentation.events.model.Event
 import com.afkoders.batteryme.utils.extensions.collapse
-import com.afkoders.batteryme.utils.extensions.dpToPx
+import com.afkoders.batteryme.utils.extensions.dp
 import com.afkoders.batteryme.utils.extensions.hide
 import com.afkoders.batteryme.utils.extensions.navigateTo
 import com.afkoders.batteryme.utils.extensions.widget.makeGone
@@ -26,8 +26,8 @@ class MainFragment :
     private lateinit var bottomSheetNotifications: BottomSheetBehavior<View>
     private var currentFragmentId: Int = R.id.menuItemBattery
 
-    private val cornerRadius by lazy { 16.dpToPx(requireContext()) }
-    private val elevation by lazy { 8.dpToPx(requireContext()) }
+    private val cornerRadius by lazy { 16.dp(requireContext()) }
+    private val elevation by lazy { 8.dp(requireContext()) }
 
     override fun setupInputs() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
