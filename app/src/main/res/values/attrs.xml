@@ -2,8 +2,8 @@
 <resources>
     <declare-styleable name="BatteryView">
         <attr name="percentage" format="integer" />
-        <attr name="inner_coeficient" format="integer" />
-        <attr name="radius" format="integer" />
+        <attr name="scale" format="float" />
+        <attr name="shapeRadius" format="integer" />
         <attr name="textSize" format="integer" />
 
     </declare-styleable>

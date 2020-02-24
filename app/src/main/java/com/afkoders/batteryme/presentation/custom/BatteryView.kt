@@ -49,6 +49,7 @@ class BatteryView @JvmOverloads constructor(
     private var minProgressPosition = 0f
     private val topPartWidthPercent = 5
     private var cornerRadius: Float = 0f
+    private var scale: Float = 0f
     private var progress: Int = 0
 
 
@@ -60,10 +61,11 @@ class BatteryView @JvmOverloads constructor(
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.BatteryView)
         try {
             progress = attributes.getInt(R.styleable.BatteryView_percentage, 0)
-            cornerRadius = attributes.getInt(R.styleable.BatteryView_radius, 12)
+            cornerRadius = attributes.getInt(R.styleable.BatteryView_shapeRadius, 12)
                 .dp(context).toFloat()
             progressTextPaint.textSize = attributes.getInt(R.styleable.BatteryView_textSize, 16)
                 .sp(context).toFloat()
+            scale = attributes.getFloat(R.styleable.BatteryView_scale,2.3f)
         } finally {
             attributes.recycle()
         }
@@ -71,7 +73,7 @@ class BatteryView @JvmOverloads constructor(
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val measureHeight = getDefaultSize(suggestedMinimumHeight, heightMeasureSpec)
-        val measureWidth = (measureHeight * 2.3f).toInt()
+        val measureWidth = (measureHeight * scale).toInt()
         setMeasuredDimension(measureWidth, measureHeight)
 
         measureTopPart(measureWidth, measureHeight)

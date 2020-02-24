@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLabel"
         app:percentage="10"
-        app:radius="12"
+        app:shapeRadius="12"
         app:textSize="34" />
 
     <TextView
