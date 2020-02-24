@@ -132,12 +132,17 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnJoinLeaveEvent"
+        style="@style/Button.Primary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="40dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:text="Join the event"
+        android:textAllCaps="false"
+        android:textSize="13sp"
         app:cornerRadius="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

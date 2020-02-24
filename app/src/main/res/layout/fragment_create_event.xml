@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreateChallenge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -204,7 +208,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="12dp"
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="40dp"
                 android:clickable="false"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
@@ -238,7 +242,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="40dp"
                 android:clickable="false"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
@@ -264,6 +268,13 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/button_enabled_disabled"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:text="Create an event"
-        app:cornerRadius="6dp" />
-</FrameLayout>
+        android:textAllCaps="false"
+        android:textSize="13sp"
+        app:cornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
