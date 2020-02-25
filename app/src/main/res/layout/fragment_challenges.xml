@@ -25,7 +25,8 @@
                 android:id="@+id/rvChallenges"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="vertical"
+                android:overScrollMode="never"
+                android:scrollbars="none"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -35,12 +36,12 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="32dp"
                 android:tint="@color/colorPrimary"
-                app:tint="@color/white"
                 app:backgroundTint="@color/colorPrimary"
                 app:fabSize="normal"
                 app:layout_anchor="@id/rvChallenges"
                 app:layout_anchorGravity="bottom|right|end"
-                app:srcCompat="@drawable/ic_plus" />
+                app:srcCompat="@drawable/ic_plus"
+                app:tint="@color/white" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

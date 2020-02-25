@@ -1,24 +1,16 @@
 package com.afkoders.batteryme.presentation.events.list
 
 import android.view.View
-import androidx.annotation.ColorRes
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.common.models.User
 import com.afkoders.batteryme.presentation.events.model.Event
-import com.afkoders.batteryme.utils.extensions.format
 import com.afkoders.batteryme.utils.extensions.throttleFirst
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.item_event.view.*
 import java.text.SimpleDateFormat
-import java.time.Month
-import java.time.format.TextStyle
 import java.util.*
 
 class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -41,24 +33,33 @@ class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bindTime(time: Date) {
         val calendar = Calendar.getInstance()
         calendar.time = time
-        tvEventTime.text = calendar.get(Calendar.HOUR_OF_DAY).toString()+" : "+calendar.get(Calendar.MINUTE).toString()
-        tvEventDate.text = calendar.get(Calendar.DAY_OF_MONTH).toString()+"\n"+ SimpleDateFormat("MMM").format(calendar.time)
+        tvEventTime.text =
+            calendar.get(Calendar.HOUR_OF_DAY).toString() + " : " + calendar.get(Calendar.MINUTE).toString()
+        tvEventDate.text =
+            calendar.get(Calendar.DAY_OF_MONTH).toString() + "\n" + SimpleDateFormat("MMM")
+                .format(calendar.time)
     }
 
-    fun bindUsers(users: List<User>) {
-        if(users.isNotEmpty()) {
-            Glide.with(itemView.context).load(users.get(0).photo)
+    fun bindUsers(
+        users: List<User>,
+        requestOptions: RequestOptions
+    ) {
+        if (users.isNotEmpty()) {
+            Glide.with(itemView.context).load(users[0].photo)
+                .apply(requestOptions)
                 .placeholder(R.drawable.ic_placeholder_users).into(ivEventUpper)
         }
-        if(users.size > 1) {
-            Glide.with(itemView.context).load(users.get(1).photo)
+
+        if (users.size > 1) {
+            Glide.with(itemView.context).load(users[1].photo)
+                .apply(requestOptions)
                 .placeholder(R.drawable.ic_placeholder_users).into(ivEventBottom)
         }
-        if(users.size > 3){
+
+        if (users.size > 3) {
             ivEventBottom.visibility = View.GONE
             tvCount.visibility = View.VISIBLE
             tvCount.text = users.size.toString()
-
         }
     }
 

@@ -8,14 +8,14 @@ import androidx.core.content.ContextCompat
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.challenges.model.Challenge
-import com.afkoders.batteryme.utils.extensions.*
+import com.afkoders.batteryme.utils.extensions.dp
+import com.afkoders.batteryme.utils.extensions.finish
 import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_challenge_details.*
-import kotlinx.android.synthetic.main.fragment_challenge_details.ivBack
-import kotlinx.android.synthetic.main.fragment_challenge_details.llUsers
-import kotlinx.android.synthetic.main.fragment_challenge_details.tvDescription
-import kotlinx.android.synthetic.main.fragment_challenge_details.tvTitle
 
 class ChallengeDetailsFragment :
     BaseFragmentImpl<ChallengeDetailsAgreement.Presenter, ChallengeDetailsAgreement.View>(R.layout.fragment_challenge_details),
@@ -34,6 +34,10 @@ class ChallengeDetailsFragment :
         tvTitle.text = challenge.title
         tvDescription.text = challenge.description
 
+        val requestOptions = RequestOptions().apply {
+            transform(CenterCrop(), RoundedCorners(16.dp(requireContext())))
+        }
+
         challenge.users.forEach {
             val flUser = FrameLayout(requireContext()).apply {
                 layoutParams = LinearLayout.LayoutParams(
@@ -45,13 +49,16 @@ class ChallengeDetailsFragment :
                 background =
                     AppCompatResources.getDrawable(requireContext(), R.drawable.background_user)
             }
+
             val ivUser = ImageView(requireContext()).apply {
                 layoutParams = FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.MATCH_PARENT,
                     FrameLayout.LayoutParams.MATCH_PARENT
                 )
             }
-            Glide.with(requireContext()).load(it.photo).placeholder(R.drawable.ic_placeholder_users)
+
+            Glide.with(requireContext()).load(it.photo).apply(requestOptions)
+                .placeholder(R.drawable.ic_placeholder_users)
                 .into(ivUser)
 
             flUser.addView(ivUser)

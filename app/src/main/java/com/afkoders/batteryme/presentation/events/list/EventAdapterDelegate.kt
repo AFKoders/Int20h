@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
 import com.afkoders.batteryme.presentation.events.model.Event
+import com.afkoders.batteryme.utils.extensions.dp
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
@@ -13,11 +17,15 @@ import javax.inject.Inject
 class EventAdapterDelegate @Inject constructor() :
     AdapterDelegate<MutableList<@kotlin.jvm.JvmSuppressWildcards AdapterDelegateItem>>() {
     val eventClickedSubject = PublishSubject.create<Event>()
+    val requestOptions = RequestOptions()
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val context = parent.context
         val itemView = LayoutInflater.from(context)
             .inflate(R.layout.item_event, parent, false)
+        requestOptions.apply {
+            transform(CenterCrop(), RoundedCorners(12.dp(context)))
+        }
         return EventViewHolder(itemView)
     }
 
@@ -36,7 +44,7 @@ class EventAdapterDelegate @Inject constructor() :
             holder.bindName(event.title)
             holder.bindDescription(event.description)
             holder.bindTime(event.dateTime)
-            holder.bindUsers(event.users)
+            holder.bindUsers(event.users, requestOptions)
         }
     }
 }
