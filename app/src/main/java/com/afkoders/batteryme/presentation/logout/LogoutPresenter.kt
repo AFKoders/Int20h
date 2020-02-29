@@ -4,9 +4,8 @@ import com.afkoders.batteryme.data.prefs.AppPrefs
 import com.afkoders.batteryme.presentation.base.BasePresenterImpl
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
-import javax.inject.Inject
 
-class LogoutPresenter @Inject constructor(private val appPrefs: AppPrefs) :
+class LogoutPresenter(private val appPrefs: AppPrefs) :
     BasePresenterImpl<String, LogoutAgreement.View>(),
     LogoutAgreement.Presenter {
     override fun fire() {

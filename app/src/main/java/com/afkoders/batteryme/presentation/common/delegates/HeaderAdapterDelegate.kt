@@ -10,7 +10,7 @@ import com.afkoders.batteryme.presentation.common.models.HeaderItem
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import javax.inject.Inject
 
-class HeaderAdapterDelegate @Inject constructor() :
+class HeaderAdapterDelegate :
     AdapterDelegate<MutableList<@JvmSuppressWildcards AdapterDelegateItem>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {

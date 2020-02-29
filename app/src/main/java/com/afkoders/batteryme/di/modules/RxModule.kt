@@ -9,6 +9,7 @@ import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import org.koin.dsl.module.module
 
 @Module
 class RxModule {
@@ -27,3 +28,10 @@ class RxModule {
         return CompositeDisposable()
     }
 }
+
+val rxModule = module {
+    scope(scopeId = "ApplicationScope", name = "SchedulerIO") { Schedulers.io() }
+    scope(scopeId = "ApplicationScope", name = "SchedulerUI") { AndroidSchedulers.mainThread() }
+    single{ CompositeDisposable() }
+}
+

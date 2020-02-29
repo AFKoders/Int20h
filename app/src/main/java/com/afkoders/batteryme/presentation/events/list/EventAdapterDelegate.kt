@@ -10,7 +10,7 @@ import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
-class EventAdapterDelegate @Inject constructor() :
+class EventAdapterDelegate :
     AdapterDelegate<MutableList<@kotlin.jvm.JvmSuppressWildcards AdapterDelegateItem>>() {
     val eventClickedSubject = PublishSubject.create<Event>()
 

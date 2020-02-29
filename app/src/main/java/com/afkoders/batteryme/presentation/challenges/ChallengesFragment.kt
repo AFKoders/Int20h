@@ -6,18 +6,22 @@ import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.challenges.list.ChallengeRecyclerAdapter
 import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
+import com.afkoders.batteryme.presentation.events.list.EventsRecyclerAdapter
 import com.afkoders.batteryme.presentation.main.MainFragment
 import com.afkoders.batteryme.utils.extensions.show
 import com.afkoders.batteryme.utils.extensions.widget.makeGone
 import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import kotlinx.android.synthetic.main.fragment_challenges.*
+import org.koin.android.ext.android.inject
+import org.koin.standalone.KoinComponent
 import javax.inject.Inject
 
 class ChallengesFragment :
     BaseFragmentImpl<ChallengesAgreement.Presenter, ChallengesAgreement.View>(R.layout.fragment_challenges),
-    ChallengesAgreement.View {
-    @Inject
-    lateinit var adapter: ChallengeRecyclerAdapter
+    ChallengesAgreement.View, KoinComponent {
+
+    private val adapter: ChallengeRecyclerAdapter by inject()
+
 
     override fun setupInputs() {
         rvChallenges.itemAnimator = DefaultItemAnimator()

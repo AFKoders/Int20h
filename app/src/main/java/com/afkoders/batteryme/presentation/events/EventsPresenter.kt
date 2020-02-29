@@ -7,7 +7,7 @@ import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
 import com.afkoders.batteryme.presentation.common.models.HeaderItem
 import javax.inject.Inject
 
-class EventsPresenter @Inject constructor(
+class EventsPresenter  (
     private val repository: Repository,
     private val appPrefs: AppPrefs
 ) :

@@ -11,7 +11,7 @@ import javax.xml.datatype.DatatypeConstants.SECONDS
 
 
 
-class MainFragmentPresenter @Inject constructor():
+class MainFragmentPresenter():
     BasePresenterImpl<Unit /* TODO change model here */, MainFragmentAgreement.View>(),
     MainFragmentAgreement.Presenter {
 }

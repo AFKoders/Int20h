@@ -10,7 +10,7 @@ import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
-class LeaderboardAdapterDelegate @Inject constructor() : AdapterDelegate<MutableList<@kotlin.jvm.JvmSuppressWildcards AdapterDelegateItem>>() {
+class LeaderboardAdapterDelegate : AdapterDelegate<MutableList<@kotlin.jvm.JvmSuppressWildcards AdapterDelegateItem>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val context = parent.context

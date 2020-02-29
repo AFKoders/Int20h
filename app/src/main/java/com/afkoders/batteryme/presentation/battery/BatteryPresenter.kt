@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class BatteryPresenter @Inject constructor(
+class BatteryPresenter (
     private val appPrefs: AppPrefs,
     private val repository: Repository
 ) :

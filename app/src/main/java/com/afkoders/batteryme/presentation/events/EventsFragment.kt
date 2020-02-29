@@ -10,15 +10,18 @@ import com.afkoders.batteryme.presentation.main.MainFragment
 import com.afkoders.batteryme.utils.extensions.show
 import com.afkoders.batteryme.utils.extensions.widget.makeGone
 import com.afkoders.batteryme.utils.extensions.widget.makeVisible
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_events.*
+import org.koin.android.ext.android.inject
+import org.koin.standalone.KoinComponent
 import javax.inject.Inject
 
 class EventsFragment :
     BaseFragmentImpl<EventsAgreement.Presenter, EventsAgreement.View>(R.layout.fragment_events),
-    EventsAgreement.View {
+    EventsAgreement.View, KoinComponent {
 
-    @Inject
-    lateinit var adapter: EventsRecyclerAdapter
+    private val adapter: EventsRecyclerAdapter by inject()
+
 
     override fun setupInputs() {
         rvEvents.itemAnimator = DefaultItemAnimator()

@@ -110,13 +110,16 @@ dependencies {
     implementation "com.google.dagger:dagger:2.25.4"
     implementation "com.google.dagger:dagger-android:2.25.4"
     implementation "com.google.dagger:dagger-android-support:2.25.4"
+    kapt "com.google.dagger:dagger-android-processor:2.25.4"
+    kapt "com.google.dagger:dagger-compiler:2.25.4"
+
+    //Fireabse
     implementation 'com.google.firebase:firebase-database:19.2.1'
     implementation "com.google.firebase:firebase-auth:19.2.0"
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     implementation 'com.google.firebase:firebase-messaging:20.1.0'
-    kapt "com.google.dagger:dagger-android-processor:2.25.4"
-    kapt "com.google.dagger:dagger-compiler:2.25.4"
+
 
     // Glide
     implementation "com.github.bumptech.glide:glide:4.10.0"
@@ -140,4 +143,12 @@ dependencies {
 
     // Adapter delegate for RecyclerView
     implementation 'com.hannesdorfmann:adapterdelegates4:4.2.0'
+
+    // koin version
+    def koin_version = '1.0.2'
+
+    // Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    // or Koin for view model features
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
 }

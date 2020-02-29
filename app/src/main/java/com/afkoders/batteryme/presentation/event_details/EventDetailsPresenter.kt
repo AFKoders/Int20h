@@ -6,7 +6,7 @@ import com.afkoders.batteryme.presentation.base.BasePresenterImpl
 import com.afkoders.batteryme.presentation.events.model.Event
 import javax.inject.Inject
 
-class EventDetailsPresenter @Inject constructor(private val appPrefs: AppPrefs,
+class EventDetailsPresenter (private val appPrefs: AppPrefs,
                                                 private val repository: Repository) :
     BasePresenterImpl<Event, EventDetailsAgreement.View>(),
     EventDetailsAgreement.Presenter {

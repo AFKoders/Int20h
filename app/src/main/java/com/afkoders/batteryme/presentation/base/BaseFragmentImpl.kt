@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.fragment.app.Fragment
 import com.afkoders.batteryme.presentation.dialogs.BaseDialog
 import com.afkoders.batteryme.presentation.dialogs.LoaderDialog
 import com.afkoders.batteryme.utils.extensions.disposeBy
@@ -13,20 +14,22 @@ import com.jakewharton.rxbinding2.view.RxView
 import dagger.android.support.DaggerFragment
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import org.koin.android.ext.android.inject
+import org.koin.standalone.KoinComponent
 import javax.inject.Inject
 
 abstract class BaseFragmentImpl<P : BasePresenter<V>, V : BaseView>(@LayoutRes val layoutRes: Int) :
-    DaggerFragment(), BaseView {
+    Fragment(), BaseView, KoinComponent {
 
     protected val progress: BaseDialog = LoaderDialog.createDialog {
         isCancelableOnTouchOutside = false
         shouldClearDim = true
     }
 
-    @Inject
-    lateinit var compositeDisposable: CompositeDisposable
-    @Inject
-    lateinit var presenter: P
+    private val compositeDisposable: CompositeDisposable by inject()
+
+    protected lateinit var presenter: P
+
 
     override fun onCreateView(
         inflater: LayoutInflater,

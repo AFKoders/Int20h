@@ -8,7 +8,7 @@ import com.afkoders.batteryme.presentation.challenges.model.Challenge
 import com.afkoders.batteryme.presentation.common.models.User
 import javax.inject.Inject
 
-class LoginPresenter @Inject constructor(
+class LoginPresenter  (
     private val appPrefs: AppPrefs,
     private val repository: Repository
 ) :

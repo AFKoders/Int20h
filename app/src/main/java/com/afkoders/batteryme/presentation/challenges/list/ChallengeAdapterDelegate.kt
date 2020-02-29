@@ -10,7 +10,7 @@ import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
-class ChallengeAdapterDelegate @Inject constructor() : AdapterDelegate<MutableList<@kotlin.jvm.JvmSuppressWildcards AdapterDelegateItem>>() {
+class ChallengeAdapterDelegate : AdapterDelegate<MutableList<@kotlin.jvm.JvmSuppressWildcards AdapterDelegateItem>>() {
     val challengeClickedSubject = PublishSubject.create<Challenge>()
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {

@@ -7,7 +7,7 @@ import com.afkoders.batteryme.presentation.common.models.HeaderItem
 import com.afkoders.batteryme.presentation.leaderboard.model.LeaderboardModel
 import javax.inject.Inject
 
-class LeaderboardPresenter @Inject constructor(private val repository: Repository) :
+class LeaderboardPresenter (private val repository: Repository) :
     BasePresenterImpl<List<AdapterDelegateItem>, LeaderboardAgreement.View>(),
     LeaderboardAgreement.Presenter {
     override fun uploadData() {

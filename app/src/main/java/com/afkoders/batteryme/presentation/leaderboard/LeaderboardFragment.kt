@@ -4,19 +4,22 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import com.afkoders.batteryme.R
 import com.afkoders.batteryme.presentation.base.BaseFragmentImpl
 import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
+import com.afkoders.batteryme.presentation.events.list.EventsRecyclerAdapter
 import com.afkoders.batteryme.presentation.leaderboard.list.LeaderboardRecyclerAdapter
 import com.afkoders.batteryme.utils.extensions.show
 import com.afkoders.batteryme.utils.extensions.widget.makeGone
 import com.afkoders.batteryme.utils.extensions.widget.makeVisible
 import kotlinx.android.synthetic.main.fragment_leaderboard.*
+import org.koin.android.ext.android.inject
+import org.koin.standalone.KoinComponent
 import javax.inject.Inject
 
 class LeaderboardFragment :
     BaseFragmentImpl<LeaderboardAgreement.Presenter, LeaderboardAgreement.View>(R.layout.fragment_leaderboard),
-    LeaderboardAgreement.View {
+    LeaderboardAgreement.View, KoinComponent {
 
-    @Inject
-    lateinit var adapter: LeaderboardRecyclerAdapter
+    private val adapter: LeaderboardRecyclerAdapter by inject()
+
 
     override fun setupInputs() {
         rvLeaderboard.itemAnimator = DefaultItemAnimator()

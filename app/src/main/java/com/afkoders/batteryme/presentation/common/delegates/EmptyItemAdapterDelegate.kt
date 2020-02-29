@@ -10,7 +10,7 @@ import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import javax.inject.Inject
 
 
-class EmptyItemAdapterDelegate @Inject constructor() :
+class EmptyItemAdapterDelegate :
     AdapterDelegate<MutableList<@JvmSuppressWildcards AdapterDelegateItem>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {

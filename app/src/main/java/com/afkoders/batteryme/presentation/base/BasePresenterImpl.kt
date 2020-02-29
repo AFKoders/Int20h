@@ -6,11 +6,13 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import org.koin.standalone.KoinComponent
+import org.koin.standalone.inject
 import java.lang.ref.WeakReference
-import javax.inject.Inject
 
-abstract class BasePresenterImpl<M, V : BaseView> : BasePresenter<V> {
-    @Inject lateinit var compositeDisposable: CompositeDisposable
+abstract class BasePresenterImpl<M, V : BaseView> : BasePresenter<V>, KoinComponent {
+
+    private val compositeDisposable: CompositeDisposable by inject()
 
     protected var model: M? = null
         set(value) {

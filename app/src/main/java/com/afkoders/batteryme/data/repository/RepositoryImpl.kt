@@ -16,7 +16,7 @@ import java.util.*
 import javax.inject.Inject
 
 
-class RepositoryImpl @Inject constructor(
+class RepositoryImpl(
     private val apiService: ApiService,
     @SchedulerUI private val schedulerUI: Scheduler,
     @SchedulerIO private val schedulerIO: Scheduler

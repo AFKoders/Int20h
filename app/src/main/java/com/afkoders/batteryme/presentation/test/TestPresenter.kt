@@ -5,7 +5,7 @@ import com.afkoders.batteryme.presentation.base.BasePresenterImpl
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class TestPresenter @Inject constructor(private val repository: Repository) :
+class TestPresenter  (private val repository: Repository) :
     BasePresenterImpl<MutableList<String>, TestAgreement.View>(), TestAgreement.Presenter {
 
     override fun loadData() {

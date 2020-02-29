@@ -11,6 +11,8 @@ import com.google.gson.Gson
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import org.koin.android.ext.koin.androidContext
+import org.koin.dsl.module.module
 
 
 @Module(includes = [ActivityBindingModule::class, ApiServiceModule::class])
@@ -35,4 +37,11 @@ abstract class ApplicationModule {
             return AppPrefs(context, gson)
         }
     }
+}
+
+
+val applicationModule = module {
+ scope("ApplicationScope"){
+     AppPrefs(androidContext(), get(scopeId = "ApplicationScope") as Gson)
+ }
 }

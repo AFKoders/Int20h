@@ -6,7 +6,7 @@ import com.afkoders.batteryme.presentation.common.delegates.HeaderAdapterDelegat
 import com.afkoders.batteryme.presentation.common.models.AdapterDelegateItem
 import javax.inject.Inject
 
-class EventsRecyclerAdapter @Inject constructor(
+class EventsRecyclerAdapter (
     emptyItemAdapterDelegate: EmptyItemAdapterDelegate,
     eventAdapterDelegate: EventAdapterDelegate,
     headerAdapterDelegate: HeaderAdapterDelegate

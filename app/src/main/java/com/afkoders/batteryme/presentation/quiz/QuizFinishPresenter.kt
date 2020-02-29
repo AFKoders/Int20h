@@ -6,7 +6,7 @@ import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class QuizFinishPresenter @Inject constructor(private val appPrefs: AppPrefs) :
+class QuizFinishPresenter  (private val appPrefs: AppPrefs) :
     BasePresenterImpl<String, QuizFinishAgreement.View>(),
     QuizFinishAgreement.Presenter {
     override fun fire() {
